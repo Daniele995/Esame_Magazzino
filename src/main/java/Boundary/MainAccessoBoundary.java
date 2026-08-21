@@ -22,8 +22,14 @@ public class MainAccessoBoundary {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                RegistrazioneBoundary regBoundary = new RegistrazioneBoundary();
-                frameRegistrazione = regBoundary.apriFormRegistrazione();
+                if (frameRegistrazione == null || !frameRegistrazione.isDisplayable()) {
+                    RegistrazioneBoundary regBoundary = new RegistrazioneBoundary();
+                    frameRegistrazione = regBoundary.apriFormRegistrazione();
+
+                }else {
+                    frameRegistrazione.toFront();
+                    frameRegistrazione.requestFocus();
+                }
 
             }
         });
