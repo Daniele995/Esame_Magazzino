@@ -1,6 +1,8 @@
 package Boundary;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AreaResponsabileBoundary {
     private JPanel areaResponsabilePannel;
@@ -11,11 +13,33 @@ public class AreaResponsabileBoundary {
 
 
     public AreaResponsabileBoundary() {
-        gestioneAnagrafica.addActionListener(e -> apriGestioneAnagrafica());
-        visualizzaStoricoMovimenti.addActionListener(e -> apriStoricoMovimenti());
-        visualizzaSituazioneMagazzino.addActionListener(e -> apriSituazioneAggiornata());
-        andamentoComplessivo.addActionListener(e -> apriAndamentoComplessivo());
+        gestioneAnagrafica.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                apriGestioneAnagrafica();
+            }
+        });
+        visualizzaStoricoMovimenti.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                apriStoricoMovimenti();
+            }
+        });
+        visualizzaSituazioneMagazzino.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                apriSituazioneAggiornata();
+            }
+        });
+        andamentoComplessivo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                apriAndamentoComplessivo();
+            }
+        });
     }
+
+
 
     public void apriAndamentoComplessivo(){
         JFrame frame = new JFrame("Andamento Complessivo");
@@ -60,7 +84,7 @@ public class AreaResponsabileBoundary {
         frame.setVisible(true);
     }
 
-    public JPanel getAreaResponsabilePannel() {
+    public JPanel apriFormResponsabilePannel() {
         return areaResponsabilePannel;
     }
 
@@ -71,7 +95,7 @@ public class AreaResponsabileBoundary {
 
             AreaResponsabileBoundary areaResponsabile = new AreaResponsabileBoundary();
 
-            frame.setContentPane(areaResponsabile.getAreaResponsabilePannel());
+            frame.setContentPane(areaResponsabile.apriFormResponsabilePannel());
 
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
