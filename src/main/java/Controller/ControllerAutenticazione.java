@@ -13,7 +13,7 @@ public class ControllerAutenticazione {
         if (nome == null || nome.isEmpty() || cognome == null || cognome.isEmpty() || email == null || email.isEmpty() || ruolo == null || ruolo.isEmpty()) {
             return ERRORE_DATI;
         }
-
+        //Aggiungere controlli con i dati salvati
         return REGISTRAZIONE_SUCCESSO;
     }
 
@@ -22,8 +22,7 @@ public class ControllerAutenticazione {
         //Controllo campi
         if (email == null || email.isEmpty() || ruolo == null || ruolo.isEmpty()) {
             return ERRORE_DATI;
-        }
-
-        return ERRORE_DATI;
+        }// Aggiungere controlli con i dati salvati
+        return ACCESSO_SUCCESSO;
     }
 }

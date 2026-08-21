@@ -1,4 +1,6 @@
 package Boundary;
+import Controller.ControllerAutenticazione;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,17 +38,27 @@ public class MainAccessoBoundary {
         accedi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String emailInserita = inserisciEmail.getText();
                 String ruoloSelezionato = (String) scegliRuolo.getSelectedItem();
 
-                if ("Responsabile".equals(ruoloSelezionato)) {
-                    AreaResponsabileBoundary areaResp = new AreaResponsabileBoundary();
-                    frameResponsabile = areaResp.apriFormResponsabile();
+                ControllerAutenticazione controller = new ControllerAutenticazione();
+                int esito = controller.accesso(emailInserita, ruoloSelezionato);
 
-                } else if ("Operatore".equals(ruoloSelezionato)) {
-                    AreaOperatoreBoundary areaOp = new AreaOperatoreBoundary();
-                    frameOperatore = areaOp.apriFormOperatore();
+                if  (esito == ControllerAutenticazione.ACCESSO_SUCCESSO) {
+
+                    if ("Responsabile".equals(ruoloSelezionato)) {
+                        AreaResponsabileBoundary areaResp = new AreaResponsabileBoundary();
+                        frameResponsabile = areaResp.apriFormResponsabile();
+
+                    } else if ("Operatore".equals(ruoloSelezionato)) {
+                        AreaOperatoreBoundary areaOp = new AreaOperatoreBoundary();
+                        frameOperatore = areaOp.apriFormOperatore();
+                    }
+
+                }else {
+                    JOptionPane.showMessageDialog(null, "Errore: credenziali non valide o ruolo errato!");
                 }
+
             }
         });
     }
