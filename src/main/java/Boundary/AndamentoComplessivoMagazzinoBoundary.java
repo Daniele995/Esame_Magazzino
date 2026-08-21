@@ -32,7 +32,6 @@ public class AndamentoComplessivoMagazzinoBoundary {
 
     public void apriAndamentoComplessivo(){
         JFrame frame = new JFrame("Andamento Complessivo");
-        AndamentoComplessivoMagazzinoBoundary andamentoComplessivo = new AndamentoComplessivoMagazzinoBoundary();
         frame.setContentPane(this.andamentoComplessivoPanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();

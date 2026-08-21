@@ -12,8 +12,6 @@ public class GestioneAnagraficaBoundary {
 
     public void apriGestioneAnagrafica() {
         JFrame frame = new JFrame("Gestione Anagrafica");
-
-        GestioneAnagraficaBoundary anagraficaBoundary = new GestioneAnagraficaBoundary();
         frame.setContentPane(this.gestioneAnagraficaPanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();

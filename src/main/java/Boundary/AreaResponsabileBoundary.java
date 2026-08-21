@@ -47,8 +47,6 @@ public class AreaResponsabileBoundary {
 
     public JPanel apriFormResponsabilePanel() {
         JFrame frame = new JFrame("Area Responsabile");
-
-        AreaResponsabileBoundary areaResponsabile = new AreaResponsabileBoundary();
         frame.setContentPane(this.areaResponsabilePanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();

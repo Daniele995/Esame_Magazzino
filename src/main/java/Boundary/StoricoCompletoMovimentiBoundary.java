@@ -15,8 +15,6 @@ public class StoricoCompletoMovimentiBoundary {
 
     public void apriStoricoMovimenti() {
         JFrame frame = new JFrame("Storico Movimenti");
-
-        StoricoCompletoMovimentiBoundary storicoMovimentiBoundary = new StoricoCompletoMovimentiBoundary();
         frame.setContentPane(this.storicoCompletoMovimentiPanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();

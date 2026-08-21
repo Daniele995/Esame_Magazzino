@@ -16,7 +16,6 @@ public class SituazioneAggiornataMagazzinoBoundary {
     public void apriSituazioneAggiornata(){
         JFrame frame = new JFrame("Situazione Aggiornata");
 
-        SituazioneAggiornataMagazzinoBoundary situazioneAggiornataBoundary = new SituazioneAggiornataMagazzinoBoundary();
         frame.setContentPane(this.situazioneAggiornataMagazzinoPanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
