@@ -10,19 +10,15 @@ public class ControllerAutenticazione {
 
     public int registrazioneUtente(String nome, String cognome, String email, String ruolo) {
         //Controllo campi
-        if (nome == null || nome.isEmpty() || cognome == null || cognome.isEmpty() || email == null || email.isEmpty() || ruolo == null || ruolo.isEmpty()) {
-            return ERRORE_DATI;
-        }
+
         //Aggiungere controlli con i dati salvati
-        return REGISTRAZIONE_SUCCESSO;
+        return 3;
     }
 
 
     public int accesso(String email, String ruolo) {
         //Controllo campi
-        if (email == null || email.isEmpty() || ruolo == null || ruolo.isEmpty()) {
-            return ERRORE_DATI;
-        }// Aggiungere controlli con i dati salvati
-        return ACCESSO_SUCCESSO;
+        // Aggiungere controlli con i dati salvati
+        return 2;
     }
 }

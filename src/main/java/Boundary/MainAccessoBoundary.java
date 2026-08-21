@@ -41,6 +41,11 @@ public class MainAccessoBoundary {
                 String emailInserita = inserisciEmail.getText();
                 String ruoloSelezionato = (String) scegliRuolo.getSelectedItem();
 
+                if (emailInserita == null || emailInserita.isEmpty() || ruoloSelezionato == null || ruoloSelezionato.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Errore: credenziali non valide o ruolo errato!");
+                    return;
+                }
+
                 ControllerAutenticazione controller = new ControllerAutenticazione();
                 int esito = controller.accesso(emailInserita, ruoloSelezionato);
 
@@ -55,8 +60,6 @@ public class MainAccessoBoundary {
                         frameOperatore = areaOp.apriFormOperatore();
                     }
 
-                }else {
-                    JOptionPane.showMessageDialog(null, "Errore: credenziali non valide o ruolo errato!");
                 }
 
             }

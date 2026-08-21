@@ -28,7 +28,11 @@ public class RegistrazioneBoundary {
                 String emailInserita = inserisciEmail.getText();
                 String ruoloSelezionato = (String) scegliRuolo.getSelectedItem();
 
-                ControllerAutenticazione controller = new ControllerAutenticazione();
+                if (nomeInserito == null || nomeInserito.isEmpty() || cognomeInserito == null || cognomeInserito.isEmpty() || emailInserita == null || emailInserita.isEmpty() || ruoloSelezionato == null || ruoloSelezionato.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Errore nei dati inseriti o campi vuoti.");
+                    return;
+                }
+                    ControllerAutenticazione controller = new ControllerAutenticazione();
                 int esito = controller.registrazioneUtente(nomeInserito, cognomeInserito, emailInserita, ruoloSelezionato);
 
                 if (esito == ControllerAutenticazione.REGISTRAZIONE_SUCCESSO) {
@@ -36,8 +40,6 @@ public class RegistrazioneBoundary {
 
                 } else if (esito == ControllerAutenticazione.EMAIL_GIA_ESISTENTE) {
                     JOptionPane.showMessageDialog(null, "Errore: questa email è già registrata.");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Errore nei dati inseriti o campi vuoti.");
                 }
 
 
