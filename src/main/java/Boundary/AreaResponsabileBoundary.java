@@ -45,14 +45,14 @@ public class AreaResponsabileBoundary {
         });
     }
 
-    public JPanel apriFormResponsabilePanel() {
-        JFrame frame = new JFrame("Area Responsabile");
-        frame.setContentPane(this.areaResponsabilePanel);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        return areaResponsabilePanel;
+    public JFrame apriFormResponsabile() {
+        JFrame frameResponsabile = new JFrame("Area Responsabile");
+        frameResponsabile.setContentPane(this.areaResponsabilePanel);
+        frameResponsabile.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frameResponsabile.pack();
+        frameResponsabile.setLocationRelativeTo(null);
+        frameResponsabile.setVisible(true);
+        return frameResponsabile;
     }
 
 /*

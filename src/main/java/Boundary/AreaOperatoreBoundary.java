@@ -36,7 +36,7 @@ public class AreaOperatoreBoundary {
     }
 
     public JFrame apriFormOperatore(){
-        JFrame frameOperatore = new JFrame("area operatore");
+        JFrame frameOperatore = new JFrame("Area Operatore");
         frameOperatore.setContentPane(this.areaOperatorePanel);
         frameOperatore.pack();
         frameOperatore.setLocationRelativeTo(null);

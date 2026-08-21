@@ -33,11 +33,11 @@ public class MainAccessoBoundary {
 
                 String ruoloSelezionato = (String) scegliRuolo.getSelectedItem();
 
-               /* if ("Responsabile".equals(ruoloSelezionato)) {
+                if ("Responsabile".equals(ruoloSelezionato)) {
                     AreaResponsabileBoundary areaResp = new AreaResponsabileBoundary();
                     frameResponsabile = areaResp.apriFormResponsabile();
 
-                } else */if ("Operatore".equals(ruoloSelezionato)) {
+                } else if ("Operatore".equals(ruoloSelezionato)) {
                     AreaOperatoreBoundary areaOp = new AreaOperatoreBoundary();
                     frameOperatore = areaOp.apriFormOperatore();
                 }
