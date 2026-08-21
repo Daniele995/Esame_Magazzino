@@ -17,16 +17,13 @@ public class SituazioneAggiornataMagazzinoBoundary {
         JFrame frame = new JFrame("Situazione Aggiornata");
 
         SituazioneAggiornataMagazzinoBoundary situazioneAggiornataBoundary = new SituazioneAggiornataMagazzinoBoundary();
-        frame.setContentPane(situazioneAggiornataBoundary.getSituazioneAggiornataMagazzinoPanel());
+        frame.setContentPane(this.situazioneAggiornataMagazzinoPanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
-    public JPanel getSituazioneAggiornataMagazzinoPanel() {
-        return situazioneAggiornataMagazzinoPanel;
-    }
 }
 
 

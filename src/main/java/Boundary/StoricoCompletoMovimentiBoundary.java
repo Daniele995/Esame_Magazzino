@@ -17,14 +17,11 @@ public class StoricoCompletoMovimentiBoundary {
         JFrame frame = new JFrame("Storico Movimenti");
 
         StoricoCompletoMovimentiBoundary storicoMovimentiBoundary = new StoricoCompletoMovimentiBoundary();
-        frame.setContentPane(storicoMovimentiBoundary.getStoricoCompletoMovimentiPanel());
+        frame.setContentPane(this.storicoCompletoMovimentiPanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
-    public JPanel getStoricoCompletoMovimentiPanel() {
-        return storicoCompletoMovimentiPanel;
-    }
 }

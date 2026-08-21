@@ -45,7 +45,7 @@ public class AreaResponsabileBoundary {
         });
     }
 
-    public JPanel apriFormResponsabilePannel() {
+    public JPanel apriFormResponsabilePanel() {
         JFrame frame = new JFrame("Area Responsabile");
 
         AreaResponsabileBoundary areaResponsabile = new AreaResponsabileBoundary();
@@ -57,7 +57,7 @@ public class AreaResponsabileBoundary {
         return areaResponsabilePanel;
     }
 
-
+/*
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Area Responsabile");
@@ -72,5 +72,7 @@ public class AreaResponsabileBoundary {
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         });
-    }
+    }ù
+
+ */
 }

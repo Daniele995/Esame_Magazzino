@@ -14,14 +14,12 @@ public class GestioneAnagraficaBoundary {
         JFrame frame = new JFrame("Gestione Anagrafica");
 
         GestioneAnagraficaBoundary anagraficaBoundary = new GestioneAnagraficaBoundary();
-        frame.setContentPane(anagraficaBoundary.getGestioneAnagraficaPanel());
+        frame.setContentPane(this.gestioneAnagraficaPanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
-    public JPanel getGestioneAnagraficaPanel() {
-        return gestioneAnagraficaPanel;
-    }
+
 }
