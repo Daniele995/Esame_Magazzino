@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AreaResponsabileBoundary {
-    private JPanel areaResponsabilePannel;
+    private JPanel areaResponsabilePanel;
     private JButton gestioneAnagrafica;
     private JButton visualizzaStoricoMovimenti;
     private JButton visualizzaSituazioneMagazzino;
@@ -15,77 +15,46 @@ public class AreaResponsabileBoundary {
     public AreaResponsabileBoundary() {
         gestioneAnagrafica.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                apriGestioneAnagrafica();
+            public void actionPerformed(ActionEvent e)
+            {
+                GestioneAnagraficaBoundary gestioneAnagrafica = new GestioneAnagraficaBoundary();
+                gestioneAnagrafica.apriGestioneAnagrafica();
             }
         });
         visualizzaStoricoMovimenti.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                apriStoricoMovimenti();
+                StoricoCompletoMovimentiBoundary storicoCompleto = new StoricoCompletoMovimentiBoundary();
+                storicoCompleto.apriStoricoMovimenti();
             }
         });
         visualizzaSituazioneMagazzino.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                apriSituazioneAggiornata();
+
+                SituazioneAggiornataMagazzinoBoundary situazioneAggiornata = new SituazioneAggiornataMagazzinoBoundary();
+                situazioneAggiornata.apriSituazioneAggiornata();
             }
         });
         andamentoComplessivo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                apriAndamentoComplessivo();
+                AndamentoComplessivoMagazzinoBoundary andamentoComplessivo = new AndamentoComplessivoMagazzinoBoundary();
+                andamentoComplessivo.apriAndamentoComplessivo();
             }
         });
     }
 
-
-
-    public void apriAndamentoComplessivo(){
-        JFrame frame = new JFrame("Andamento Complessivo");
-        AndamentoComplessivoMagazzinoBoundary andamentoComplessivo = new AndamentoComplessivoMagazzinoBoundary();
-        frame.setContentPane(andamentoComplessivo.getAndamentoComplessivoPanel());
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-
-    public void apriSituazioneAggiornata(){
-        JFrame frame = new JFrame("Situazione Aggiornata");
-
-        SituazioneAggiornataMagazzinoBoundary situazioneAggiornataBoundary = new SituazioneAggiornataMagazzinoBoundary();
-        frame.setContentPane(situazioneAggiornataBoundary.getSituazioneAggiornataMagazzinoPanel());
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-
-    public void apriStoricoMovimenti() {
-        JFrame frame = new JFrame("Storico Movimenti");
-
-        StoricoCompletoMovimentiBoundary storicoMovimentiBoundary = new StoricoCompletoMovimentiBoundary();
-        frame.setContentPane(storicoMovimentiBoundary.getStoricoCompletoMovimentiPanel());
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-
-    public void apriGestioneAnagrafica() {
-        JFrame frame = new JFrame("Gestione Anagrafica");
-
-        GestioneAnagraficaBoundary anagraficaBoundary = new GestioneAnagraficaBoundary();
-        frame.setContentPane(anagraficaBoundary.getGestioneAnagraficaPanel());
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-
     public JPanel apriFormResponsabilePannel() {
-        return areaResponsabilePannel;
+        JFrame frame = new JFrame("Area Responsabile");
+
+        AreaResponsabileBoundary areaResponsabile = new AreaResponsabileBoundary();
+        frame.setContentPane(this.areaResponsabilePanel);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        return areaResponsabilePanel;
     }
 
 

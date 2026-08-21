@@ -10,7 +10,16 @@ public class GestioneAnagraficaBoundary {
     private JButton modificaProdotto;
     private JButton creaProdotto;
 
+    public void apriGestioneAnagrafica() {
+        JFrame frame = new JFrame("Gestione Anagrafica");
 
+        GestioneAnagraficaBoundary anagraficaBoundary = new GestioneAnagraficaBoundary();
+        frame.setContentPane(anagraficaBoundary.getGestioneAnagraficaPanel());
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
 
     public JPanel getGestioneAnagraficaPanel() {
         return gestioneAnagraficaPanel;

@@ -13,6 +13,17 @@ public class StoricoCompletoMovimentiBoundary {
         storicoCompleto.setModel(modelloTabella);
     }
 
+    public void apriStoricoMovimenti() {
+        JFrame frame = new JFrame("Storico Movimenti");
+
+        StoricoCompletoMovimentiBoundary storicoMovimentiBoundary = new StoricoCompletoMovimentiBoundary();
+        frame.setContentPane(storicoMovimentiBoundary.getStoricoCompletoMovimentiPanel());
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
     public JPanel getStoricoCompletoMovimentiPanel() {
         return storicoCompletoMovimentiPanel;
     }
