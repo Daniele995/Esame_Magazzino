@@ -35,6 +35,16 @@ public class GestoreUtenti {
             return -1;
         }
     }
+
+    public int accesso(String email, Ruolo ruolo) {
+        Utente utente = gestorePersistenza.cercaPrimoPerCampi(Utente.class, Map.of("email", email, "ruolo", ruolo));
+        if (utente == null) {
+            return -1;
+        }else {
+            return 2;
+        }
+
+    }
     public int verificaCredenziali(String email){
         GestorePersistenza gestorePersistenza = new GestorePersistenza();
 

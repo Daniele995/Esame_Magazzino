@@ -18,10 +18,10 @@ public class ControllerAutenticazione {
     }
 
 
-    public int accesso(String email, String ruolo) {
-        //Controllo campi
-        // Aggiungere controlli con i dati salvati
-        return 2;
+    public int accessoUtente(String email, String ruoloPassato) {
+        Ruolo ruolo = Ruolo.valueOf(ruoloPassato.toUpperCase()); //Converto per enum
+        GestoreUtenti gestore = new GestoreUtenti();
+        return  gestore.accesso(email,ruolo);
     }
 
     public static int eseguiLogin(String email){

@@ -19,8 +19,6 @@ public class MainAccessoBoundary {
     private JFrame frameOperatore;
 
 
-
-
     public MainAccessoBoundary() {
         registrati.addActionListener(new ActionListener() {
             @Override
@@ -49,7 +47,7 @@ public class MainAccessoBoundary {
                 }
 
                 ControllerAutenticazione controller = new ControllerAutenticazione();
-                int esito = controller.accesso(emailInserita, ruoloSelezionato);
+                int esito = controller.accessoUtente(emailInserita, ruoloSelezionato);
 
                 if  (esito == ControllerAutenticazione.ACCESSO_SUCCESSO) {
                     int idUtente = ControllerAutenticazione.eseguiLogin(emailInserita);
