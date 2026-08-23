@@ -106,6 +106,15 @@ public class GestorePersistenza {
         return risultati.get(0);
     }
 
+    public <T> List<T> cercaTutti(Class<T> classe) {
+        EntityManager em = JpaUtil.getInstance().getEntityManager();
+        try {
+            return em.createQuery("SELECT e FROM " + classe.getSimpleName() + " e", classe).getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
     public <T> T aggiorna(T oggetto) {
 
         EntityManager em = JpaUtil.getInstance().getEntityManager();

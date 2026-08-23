@@ -1,5 +1,6 @@
 package Controller;
 
+import Database.GestorePersistenza;
 import Entity.*;
 
 import java.util.ArrayList;
@@ -33,7 +34,9 @@ public class ControllerOperatore {
     public static List<String[]> getStoricoOperazioni(int idProdotto){
         RegistroMovimenti registroMovimenti = new RegistroMovimenti();
 
-        List<Movimento> movimenti = registroMovimenti.getRegistroMovimenti();
+        GestorePersistenza gestorePersistenza = new GestorePersistenza();
+
+        List<Movimento> movimenti = gestorePersistenza.cercaTutti(Movimento.class);
         List<String[]> righe = new ArrayList<>();
 
         for (Movimento m: movimenti){
