@@ -7,9 +7,16 @@ import jakarta.persistence.Id;
 public class Prodotto {
     @Id
     private int id;
-    private int qtaDisponibile;
+    private String nome;
+    private String descrizione;
+    private String categoria;
     private int sogliaMinima;
+    private int qtaDisponibile;
+    private String posizione;
     private boolean isSottoScorta = false;
+
+
+    public Prodotto() {}
 
     public Prodotto(int id, int qtaDisponibile, int sogliaMinima) {
         this.id = id;
@@ -17,9 +24,7 @@ public class Prodotto {
         this.sogliaMinima = sogliaMinima;
     }
 
-    public Prodotto() {
 
-    }
 
     public int getQtaDisponibile(){
         return this.qtaDisponibile;

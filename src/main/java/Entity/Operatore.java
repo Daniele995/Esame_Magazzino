@@ -1,5 +1,6 @@
 package Entity;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
@@ -7,11 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@DiscriminatorValue("OPERATORE")
 public class Operatore extends Utente{
     @OneToMany
     private List<Movimento> storicoPersonale = new ArrayList<Movimento>();
 
     public Operatore() {
+        super();
 
     }
 

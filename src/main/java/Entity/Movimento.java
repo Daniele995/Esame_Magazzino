@@ -21,6 +21,9 @@ public class Movimento {
     @JoinColumn(name = "prodotto_id")
     private Prodotto prodotto;
 
+
+    public Movimento() {}
+
     public Movimento(String tipo, int quantita, Date data, Operatore operatore, Prodotto prodotto){
         this.tipo = tipo;
         this.quantita = quantita;
@@ -29,9 +32,7 @@ public class Movimento {
         this.prodotto = prodotto;
 }
 
-    public Movimento() {
 
-    }
 
     public int getMovimento_id() {
         return Movimento_id;
