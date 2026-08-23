@@ -1,13 +1,14 @@
 package Entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Magazzino {
 
-    private ArrayList<Operatore> operatori = new ArrayList<Operatore>();
+    private List<Operatore> operatori = new ArrayList<Operatore>();
     private static Magazzino instance = null;
-    private ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
+    private List<Prodotto> prodotti = new ArrayList<Prodotto>();
     private Responsabile responsabile;
 
     private Magazzino(){
@@ -39,7 +40,7 @@ public class Magazzino {
         this.responsabile.riceviNotifica(notifica);
     }
 
-    public ArrayList<Prodotto> getProdotti() {
+    public List<Prodotto> getProdotti() {
         return prodotti;
     }
 }
