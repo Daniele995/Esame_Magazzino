@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String nome;
     private String cognome;
@@ -20,4 +20,9 @@ public class Utente {
     public String getNome() {
         return nome;
     }
+
+    public int getId(){
+        return this.id;
+    }
+
 }

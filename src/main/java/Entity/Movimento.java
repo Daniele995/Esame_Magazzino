@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 @DiscriminatorValue("OPERATORE")
 public class Movimento {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Movimento_id;
     private String tipo;
     private int quantita;
@@ -20,8 +21,7 @@ public class Movimento {
     @JoinColumn(name = "prodotto_id")
     private Prodotto prodotto;
 
-    public Movimento(int Movimento_id, String tipo, int quantita, Date data, Operatore operatore, Prodotto prodotto){
-        this.Movimento_id = Movimento_id;
+    public Movimento(String tipo, int quantita, Date data, Operatore operatore, Prodotto prodotto){
         this.tipo = tipo;
         this.quantita = quantita;
         this.data = data;

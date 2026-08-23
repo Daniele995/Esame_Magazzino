@@ -1,5 +1,7 @@
 package Controller;
 
+import Entity.GestoreAccount;
+
 public class ControllerAutenticazione {
 
     public static final int EMAIL_GIA_ESISTENTE = 0;
@@ -20,5 +22,10 @@ public class ControllerAutenticazione {
         //Controllo campi
         // Aggiungere controlli con i dati salvati
         return 2;
+    }
+
+    public static int eseguiLogin(String email){
+        GestoreAccount gestoreAccount = new GestoreAccount();
+        return gestoreAccount.verificaCredenziali(email);
     }
 }

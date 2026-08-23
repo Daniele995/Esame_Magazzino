@@ -19,6 +19,8 @@ public class MainAccessoBoundary {
     private JFrame frameOperatore;
 
 
+
+
     public MainAccessoBoundary() {
         registrati.addActionListener(new ActionListener() {
             @Override
@@ -50,13 +52,14 @@ public class MainAccessoBoundary {
                 int esito = controller.accesso(emailInserita, ruoloSelezionato);
 
                 if  (esito == ControllerAutenticazione.ACCESSO_SUCCESSO) {
+                    int idUtente = ControllerAutenticazione.eseguiLogin(emailInserita);
 
                     if ("Responsabile".equals(ruoloSelezionato)) {
                         AreaResponsabileBoundary areaResp = new AreaResponsabileBoundary();
                         frameResponsabile = areaResp.apriFormResponsabile();
 
                     } else if ("Operatore".equals(ruoloSelezionato)) {
-                        AreaOperatoreBoundary areaOp = new AreaOperatoreBoundary();
+                        AreaOperatoreBoundary areaOp = new AreaOperatoreBoundary(idUtente);
                         frameOperatore = areaOp.apriFormOperatore();
                     }
 

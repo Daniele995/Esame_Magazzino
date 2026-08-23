@@ -13,7 +13,12 @@ public class ControllerOperatore {
     public static final int MOVIMENTO_REGISTRATO_SOTTO_SCORTA=2;
     public static final int ERRORE_QUANTITA_INSUFFICIENTE=-1;
 
-    public static int registraMovimento(int idMovimento, String tipo, int quantita, int id_prodotto, Operatore operatore){
+    public static int registraMovimento(String tipo, int quantita, int id_prodotto, int id_Operatore){
+
+        GestorePersistenza gestorePersistenza = new GestorePersistenza();
+        Operatore operatore = gestorePersistenza.trovaPerId(Operatore.class, (long)id_Operatore);
+
+        if (operatore == null) return -1;
 
         RegistroMovimenti registroMovimenti = new RegistroMovimenti();
         RegistroProdotti registroProdotti = new RegistroProdotti();
@@ -24,7 +29,7 @@ public class ControllerOperatore {
             return ERRORE_QUANTITA_INSUFFICIENTE;
         }
 
-        registroMovimenti.registraMovimento(idMovimento, id_prodotto, tipo, quantita, new Date(), operatore);
+        registroMovimenti.registraMovimento(id_prodotto, tipo, quantita, new Date(), id_Operatore);
 
         if (prodotto.isSottoScorta()) return MOVIMENTO_REGISTRATO_SOTTO_SCORTA;
 

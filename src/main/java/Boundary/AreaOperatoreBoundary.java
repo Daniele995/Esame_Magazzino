@@ -10,7 +10,7 @@ public class AreaOperatoreBoundary {
     private JButton consultaStoricoOperazioni;
 
 
-    public AreaOperatoreBoundary() {
+    public AreaOperatoreBoundary(int idOperatore) {
         consultoElenco.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -22,7 +22,7 @@ public class AreaOperatoreBoundary {
         registraMovimento.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RegistraMovimentiBoundary registraMovimento = new RegistraMovimentiBoundary();
+                RegistraMovimentiBoundary registraMovimento = new RegistraMovimentiBoundary(idOperatore);
                 registraMovimento.apriRegistraMovimento();
             }
         });
