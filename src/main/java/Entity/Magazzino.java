@@ -6,8 +6,10 @@ import java.util.List;
 
 public class Magazzino {
 
-    private List<Operatore> operatori = new ArrayList<Operatore>();
     private static Magazzino instance = null;
+
+    private List<Operatore> operatori = new ArrayList<Operatore>();
+
     private List<Prodotto> prodotti = new ArrayList<Prodotto>();
     private Responsabile responsabile;
 
@@ -29,6 +31,7 @@ public class Magazzino {
     public void licenzia(Operatore operatore){
         operatori.remove(operatore);
     }
+
     public static Magazzino getInstance(){
         if (instance == null){
             instance = new Magazzino();

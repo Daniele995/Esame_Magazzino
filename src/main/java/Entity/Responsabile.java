@@ -15,6 +15,10 @@ public class Responsabile extends Utente {
         super();
     }
 
+    public Responsabile(String nome, String cognome, String email) {
+        super(nome, cognome, email, Ruolo.RESPONSABILE);
+    }
+
 
     public void riceviNotifica(Notifica notifica){
         codaNotifiche.add(notifica);

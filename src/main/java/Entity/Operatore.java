@@ -14,8 +14,11 @@ public class Operatore extends Utente{
     private List<Movimento> storicoPersonale = new ArrayList<Movimento>();
 
     public Operatore() {
-        super();
+        super();}
 
+    public Operatore(String nome, String cognome, String email) {
+
+        super(nome, cognome, email, Ruolo.OPERATORE);
     }
 
     public void aggiungiMovimento(Movimento movimento){

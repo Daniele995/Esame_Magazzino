@@ -17,15 +17,17 @@ public class Utente {
 
     public Utente() {}
 
-    public String getNome() {
-        return nome;
-    }
+
 
     public Utente(String nome, String cognome, String email, Ruolo ruolo) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.ruolo = ruolo;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public int getId(){

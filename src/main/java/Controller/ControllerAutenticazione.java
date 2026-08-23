@@ -1,6 +1,6 @@
 package Controller;
 
-import Entity.GestoreAccount;
+import Entity.*;
 
 public class ControllerAutenticazione {
 
@@ -10,11 +10,11 @@ public class ControllerAutenticazione {
     public static final int ACCESSO_SUCCESSO = 2;
 
 
-    public int registrazioneUtente(String nome, String cognome, String email, String ruolo) {
-        //Controllo campi
+    public int registrazioneUtente(String nome, String cognome, String email, String ruoloPassato) {
 
-        //Aggiungere controlli con i dati salvati
-        return 3;
+        Ruolo ruolo = Ruolo.valueOf(ruoloPassato.toUpperCase()); //Converto per enum
+        GestoreUtenti gestore = new GestoreUtenti();
+        return gestore.registrazione(nome, cognome, email, ruolo);
     }
 
 
@@ -25,7 +25,7 @@ public class ControllerAutenticazione {
     }
 
     public static int eseguiLogin(String email){
-        GestoreAccount gestoreAccount = new GestoreAccount();
-        return gestoreAccount.verificaCredenziali(email);
+        GestoreUtenti gestoreUtenti = new GestoreUtenti();
+        return gestoreUtenti.verificaCredenziali(email);
     }
 }
