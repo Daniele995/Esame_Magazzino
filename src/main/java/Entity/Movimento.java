@@ -32,5 +32,25 @@ public class Movimento {
     public Movimento() {
 
     }
+
+    public int getMovimento_id() {
+        return Movimento_id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public int getQuantita() {
+        return quantita;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public Operatore getOperatore() {
+        return operatore;
+    }
 }
 

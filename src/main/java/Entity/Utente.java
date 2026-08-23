@@ -17,6 +17,7 @@ public class Utente {
 
     public Utente() {}
 
-
-
+    public String getNome() {
+        return nome;
+    }
 }

@@ -39,5 +39,7 @@ public class Magazzino {
         this.responsabile.riceviNotifica(notifica);
     }
 
-
+    public ArrayList<Prodotto> getProdotti() {
+        return prodotti;
+    }
 }

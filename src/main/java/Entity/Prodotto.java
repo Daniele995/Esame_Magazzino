@@ -9,7 +9,7 @@ public class Prodotto {
     private int id;
     private int qtaDisponibile;
     private int sogliaMinima;
-    private boolean isSottoscorta = false;
+    private boolean isSottoScorta = false;
 
     public Prodotto(int id, int qtaDisponibile, int sogliaMinima) {
         this.id = id;
@@ -34,6 +34,14 @@ public class Prodotto {
     }
 
     public void setSottoscorta(boolean sottoscorta) {
-        isSottoscorta = sottoscorta;
+        isSottoScorta = sottoscorta;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public boolean isSottoScorta() {
+        return isSottoScorta;
     }
 }
