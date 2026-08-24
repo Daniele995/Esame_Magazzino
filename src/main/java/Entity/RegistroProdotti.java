@@ -9,7 +9,7 @@ public class RegistroProdotti {
     public RegistroProdotti() {
     }
 
-    public Prodotto ricercaProdotto(Long idProdotto){
+    public Prodotto ricercaProdotto(int idProdotto){
         for (Prodotto p: magazzino.getProdotti()){
             if(Objects.equals(p.getId(), idProdotto)){
                 return p;

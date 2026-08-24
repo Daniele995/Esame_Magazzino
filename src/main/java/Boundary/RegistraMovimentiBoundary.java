@@ -24,7 +24,7 @@ public class RegistraMovimentiBoundary {
             public void actionPerformed(ActionEvent e) {
 
                 System.out.println("Premuto bottone");
-                Long id_prodotto = Long.parseLong(inserisciId.getText());
+                int id_prodotto = Integer.parseInt(inserisciId.getText());
                 int quantita = Integer.parseInt(inserisciQuantita.getText());
 
                 label_esito = new JLabel();
@@ -64,7 +64,7 @@ public class RegistraMovimentiBoundary {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Premuto Bottone");
 
-                Long id_prodotto = Long.parseLong(inserisciId.getText());
+                int id_prodotto = Integer.parseInt(inserisciId.getText());
                 int quantita = Integer.parseInt(inserisciQuantita.getText());
 
                 label_esito = new JLabel();
