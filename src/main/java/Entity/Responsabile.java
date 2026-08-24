@@ -2,7 +2,8 @@ package Entity;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
+
+import jakarta.persistence.OneToMany;
 
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("RESPONSABILE")
 public class Responsabile extends Utente {
-    @ManyToMany(mappedBy = "responsabili")
+    @OneToMany(mappedBy = "responsabile")
     private List<Notifica> notifiche;
 
     public Responsabile() {
