@@ -2,7 +2,7 @@ package Entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
+
 
 @Entity
 public class Notifica {
@@ -11,13 +11,9 @@ public class Notifica {
     private int id;
     private String messaggio;
 
-    @ManyToMany
-    @JoinTable(
-            name = "responsabile_notifica",
-            joinColumns = @JoinColumn(name = "notifica_id"),
-            inverseJoinColumns = @JoinColumn(name = "responsabile_id")
-    )
-    private List<Responsabile> responsabili;
+    @ManyToOne
+    @JoinColumn(name = "responsabile_id")
+    private Responsabile responsabile;
 
     public Notifica(){
     }
