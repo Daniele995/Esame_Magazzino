@@ -1,6 +1,9 @@
 package Boundary;
+import Controller.ControllerOperatore;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 public class ConsultoElencoProdottiBoundary {
     private JPanel consultoElencoProdotti;
@@ -9,13 +12,18 @@ public class ConsultoElencoProdottiBoundary {
 
 
     public ConsultoElencoProdottiBoundary() {
-        String[] colonne = {"ID", "Nome Prodotto", "Quantità"};
-        Object[][] dati = {
-                {"1", "Lavatrice", "15"},
-                {"2", "Forno", "8"}
-        };
+        String[] colonne = {"ID", "Nome Prodotto", "Descrizione", "Categoria", "Soglia Minima", "Posizione", "Quantità disponibile"};
 
-        DefaultTableModel modelloTabella = new DefaultTableModel(dati, colonne);
+        DefaultTableModel modelloTabella = new DefaultTableModel(colonne, 0);
+
+        ControllerOperatore controller = new ControllerOperatore();
+        List<String[]> listaProdotti = controller.getElencoProdotti();
+
+        if (listaProdotti != null) {
+            for (String[] rigaProdotto : listaProdotti) {
+                modelloTabella.addRow(rigaProdotto);
+            }
+        }
         elencoProdotti.setModel(modelloTabella);
     }
 

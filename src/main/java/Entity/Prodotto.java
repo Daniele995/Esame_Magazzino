@@ -24,9 +24,10 @@ public class Prodotto {
 
     public Prodotto() {}
 
-    /*
 
-    public Prodotto(String nome, String descrizione, String categoria, int sogliaMinima, String posizione, int qtaDisponibile) {
+
+    public Prodotto(int id,String nome, String descrizione, String categoria, int sogliaMinima, String posizione, int qtaDisponibile) {
+        this.id=id;
         this.nome = nome;
         this.descrizione = descrizione;
         this.categoria = categoria;
@@ -36,17 +37,25 @@ public class Prodotto {
     }
 
 
-    */
-    public Prodotto(int id, int qtaDisponibile, int sogliaMinima) {
-        this.id = id;
-        this.qtaDisponibile = qtaDisponibile;
-        this.sogliaMinima = sogliaMinima;
+
+    public String getNome(){
+        return this.nome;
     }
 
+    public String getDescrizione() {
+        return descrizione;
+    }
 
+    public String getCategoria() {
+        return categoria;
+    }
 
     public int getQtaDisponibile(){
         return this.qtaDisponibile;
+    }
+
+    public String getPosizione() {
+        return posizione;
     }
 
     public int getSogliaMinima(){

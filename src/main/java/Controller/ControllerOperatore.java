@@ -51,7 +51,11 @@ public class ControllerOperatore {
         return righe;
     }
 
+    public List<String[]> getElencoProdotti() {
+        RegistroReport registroReport = new RegistroReport();
+        return registroReport.consultaElencoProdotti();
+    }
+
+    }
 
 
-
-}
