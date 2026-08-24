@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class RegistroProdotti {
-    private Magazzino magazzino = Magazzino.getInstance();
 
 
     public RegistroProdotti() {
