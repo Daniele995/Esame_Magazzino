@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("OPERATORE")
 public class Operatore extends Utente{
-    @OneToMany
+    @OneToMany(mappedBy = "operatore")
     private List<Movimento> storicoPersonale = new ArrayList<Movimento>();
 
     public Operatore() {

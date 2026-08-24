@@ -2,6 +2,7 @@ package Entity;
 
 import Database.GestorePersistenza;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class RegistroMovimenti {
@@ -12,9 +13,9 @@ public class RegistroMovimenti {
         gestorePersistenza = new GestorePersistenza();
     }
 
-    public boolean registraMovimento(Long id_prodotto, String tipo, int qta, Date data, int id_Operatore){
+    public boolean registraMovimento(int id_prodotto, String tipo, int qta, Date data, int id_Operatore){
 
-        Prodotto prodotto = gestorePersistenza.trovaPerId(Prodotto.class, id_prodotto);
+        Prodotto prodotto = gestorePersistenza.trovaPerId(Prodotto.class, (long) id_prodotto);
         Operatore operatore = gestorePersistenza.trovaPerId(Operatore.class, (long) id_Operatore);
         if (prodotto == null){
             System.out.println("Errore: Prodotto non trovato nel DB");
@@ -33,8 +34,8 @@ public class RegistroMovimenti {
             if(tipo.equals("scarico") && prodotto.getQtaDisponibile() < prodotto.getSogliaMinima()){
                 prodotto.setSottoscorta(true);
                 Notifica notifica = new Notifica("prodotto sotto scorta",Magazzino.getInstance().getResponsabile());
-                gestorePersistenza.salva(notifica);
-                Magazzino.getInstance().inviaNotifica(notifica);
+                gestorePersistenza.salvaTutti(movimento, notifica);
+               // Magazzino.getInstance().inviaNotifica(notifica);
             }
         }
         return true;
