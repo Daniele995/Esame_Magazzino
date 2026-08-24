@@ -18,7 +18,6 @@ public class Utente {
     public Utente() {}
 
 
-
     public Utente(String nome, String cognome, String email, Ruolo ruolo) {
         this.nome = nome;
         this.cognome = cognome;

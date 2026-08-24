@@ -13,7 +13,7 @@ import java.util.List;
 @DiscriminatorValue("RESPONSABILE")
 public class Responsabile extends Utente {
     @OneToMany(mappedBy = "responsabile")
-    private List<Notifica> notifiche;
+    private List<Notifica> notifiche=new ArrayList<>();  //viene creato vuoto
 
     public Responsabile() {
         super();
@@ -23,8 +23,8 @@ public class Responsabile extends Utente {
         super(nome, cognome, email, Ruolo.RESPONSABILE);
     }
 
-
-    /*public void riceviNotifica(Notifica notifica){
-        codaNotifiche.add(notifica);
-    }*/
+    // gestisce molti
+    public void riceviNotifica(Notifica notifica){
+        notifiche.add(notifica);
+    }
 }

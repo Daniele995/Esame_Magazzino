@@ -18,9 +18,13 @@ public class Notifica {
     public Notifica(){
     }
 
-    public Notifica(String messaggio, Utente utente){
+    public Notifica(String messaggio, Responsabile responsabile){
         this.messaggio = messaggio;
-        //this.utente = utente;
+        this.responsabile = responsabile;
+
+       /* if (responsabile != null) {
+            responsabile.riceviNotifica(this);
+        }*/
     }
 
     public int getId() {

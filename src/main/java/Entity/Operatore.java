@@ -11,7 +11,7 @@ import java.util.List;
 @DiscriminatorValue("OPERATORE")
 public class Operatore extends Utente{
     @OneToMany(mappedBy = "operatore")
-    private List<Movimento> storicoPersonale = new ArrayList<Movimento>();
+    private List<Movimento> storicoPersonale = new ArrayList<Movimento>(); //viene creato vuoto
 
     public Operatore() {
         super();}
@@ -20,7 +20,7 @@ public class Operatore extends Utente{
 
         super(nome, cognome, email, Ruolo.OPERATORE);
     }
-
+    // gestisce molti
     public void aggiungiMovimento(Movimento movimento){
         storicoPersonale.add(movimento);
     }

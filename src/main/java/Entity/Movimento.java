@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@DiscriminatorValue("OPERATORE")
+
 public class Movimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,9 +14,11 @@ public class Movimento {
     private String tipo;
     private int quantita;
     private Date data;
+
     @ManyToOne
     @JoinColumn(name = "Operatore_id")
     private Operatore operatore;
+
     @ManyToOne
     @JoinColumn(name = "prodotto_id")
     private Prodotto prodotto;
@@ -30,6 +32,13 @@ public class Movimento {
         this.data = data;
         this.operatore = operatore;
         this.prodotto = prodotto;
+
+        /*if (operatore != null) {
+            operatore.aggiungiMovimento(this);
+        }
+        if (prodotto != null) {
+            prodotto.addMovimento(this);
+        }*/
 }
 
 
@@ -53,5 +62,9 @@ public class Movimento {
     public Operatore getOperatore() {
         return operatore;
     }
+
+    /*public void setProdotto(Prodotto prodotto) {
+        this.prodotto = prodotto;
+    }*/
 }
 

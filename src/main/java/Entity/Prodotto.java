@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,12 +20,9 @@ public class Prodotto {
     private boolean isSottoScorta = false;
 
     @OneToMany(mappedBy = "prodotto")
-    private List<Movimento> movimenti;
-
+    private List<Movimento> movimenti = new ArrayList<>();
 
     public Prodotto() {}
-
-
 
     public Prodotto(int id,String nome, String descrizione, String categoria, int sogliaMinima, String posizione, int qtaDisponibile) {
         this.id=id;
@@ -37,6 +35,12 @@ public class Prodotto {
     }
 
 
+    /*public void addMovimento(Movimento movimento) {
+        if (movimento != null && !movimenti.contains(movimento)) {
+            movimenti.add(movimento);
+            movimento.setProdotto(this);
+        }
+    }*/
 
     public String getNome(){
         return this.nome;
