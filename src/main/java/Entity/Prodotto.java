@@ -54,7 +54,7 @@ public class Prodotto {
     }
 
     public void aggiornaQta(int nuovaQta){
-        this.qtaDisponibile = nuovaQta;
+        this.qtaDisponibile += nuovaQta;
     }
 
     public void setSottoscorta(boolean sottoscorta) {
