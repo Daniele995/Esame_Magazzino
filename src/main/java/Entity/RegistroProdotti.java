@@ -3,7 +3,6 @@ package Entity;
 import Database.GestorePersistenza;
 
 import java.util.List;
-import java.util.Objects;
 
 public class RegistroProdotti {
 
