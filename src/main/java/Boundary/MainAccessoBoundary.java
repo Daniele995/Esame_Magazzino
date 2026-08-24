@@ -61,6 +61,8 @@ public class MainAccessoBoundary {
                         frameOperatore = areaOp.apriFormOperatore();
                     }
 
+                }else if (esito == ControllerAutenticazione.ERRORE_DATI){
+                    JOptionPane.showMessageDialog(null, "Nessuna corrispondenza, registrati");
                 }
 
             }
