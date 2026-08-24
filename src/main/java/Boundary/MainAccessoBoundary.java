@@ -50,7 +50,7 @@ public class MainAccessoBoundary {
                 int esito = controller.accessoUtente(emailInserita, ruoloSelezionato);
 
                 if  (esito == ControllerAutenticazione.ACCESSO_SUCCESSO) {
-                    int idUtente = ControllerAutenticazione.eseguiLogin(emailInserita);
+                    int idUtente = ControllerAutenticazione.getId(emailInserita);
 
                     if ("Responsabile".equals(ruoloSelezionato)) {
                         AreaResponsabileBoundary areaResp = new AreaResponsabileBoundary();

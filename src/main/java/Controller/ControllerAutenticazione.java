@@ -24,7 +24,7 @@ public class ControllerAutenticazione {
         return  gestore.accesso(email,ruolo);
     }
 
-    public static int eseguiLogin(String email){
+    public static int getId(String email){
         GestoreUtenti gestoreUtenti = new GestoreUtenti();
         return gestoreUtenti.verificaCredenziali(email);
     }

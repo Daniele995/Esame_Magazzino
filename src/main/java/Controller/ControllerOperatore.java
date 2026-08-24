@@ -15,11 +15,6 @@ public class ControllerOperatore {
 
     public static int registraMovimento(String tipo, int quantita, int id_prodotto, int id_Operatore){
 
-        GestorePersistenza gestorePersistenza = new GestorePersistenza();
-        Operatore operatore = gestorePersistenza.trovaPerId(Operatore.class, (long)id_Operatore);
-
-        if (operatore == null) return -1;
-
         RegistroMovimenti registroMovimenti = new RegistroMovimenti();
         RegistroProdotti registroProdotti = new RegistroProdotti();
 
