@@ -19,6 +19,9 @@ public class ControllerOperatore {
         RegistroProdotti registroProdotti = new RegistroProdotti();
 
         Prodotto prodotto = registroProdotti.ricercaProdotto(id_prodotto);
+        if (prodotto == null){
+            return -2;
+        }
 
         if (tipo.equals("scarico") && quantita > prodotto.getQtaDisponibile()){
             return ERRORE_QUANTITA_INSUFFICIENTE;

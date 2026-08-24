@@ -14,6 +14,7 @@ public class RegistraMovimentiBoundary {
     private JButton registraScarico;
     private JLabel id;
     private JLabel quantità;
+    private JLabel label_esito;
 
 
     public RegistraMovimentiBoundary(int id_Operatore) {
@@ -23,11 +24,92 @@ public class RegistraMovimentiBoundary {
             public void actionPerformed(ActionEvent e) {
 
                 System.out.println("Premuto bottone");
-                int id_prodotto = Integer.getInteger(inserisciId.getText());
-                int quantita = Integer.getInteger(inserisciQuantita.getText());
+                int id_prodotto = Integer.parseInt(inserisciId.getText());
+                int quantita = Integer.parseInt(inserisciQuantita.getText());
+
+                label_esito = new JLabel();
+                int esito = ControllerOperatore.registraMovimento("carico",quantita,id_prodotto,id_Operatore);
+
+                if (esito == -2){
+                    label_esito.setText("Errore: Prodotto inesistente");
+                    JOptionPane.showMessageDialog(null,
+                            "Id inserito non corrispondente a nessun prodotto",
+                            "Prodotto non trovato",
+                            JOptionPane.ERROR_MESSAGE);
+
+                } else if (esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SUCCESSO){
+                    label_esito.setText("Movimento registrato con successo");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Movimento salvato e quantità aggiornata",
+                            "Salvataggio eseguito",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else {
+                    label_esito.setText("Movimento non eseguito");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Movimento non eseguito,",
+                            "Errore nel salvataggio",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
+
+            }
+        });
 
 
-                int esito = ControllerOperatore.registraMovimento("carico",id_prodotto,quantita,id_Operatore);
+        registraScarico.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Premuto Bottone");
+
+                int id_prodotto = Integer.parseInt(inserisciId.getText());
+                int quantita = Integer.parseInt(inserisciQuantita.getText());
+
+                label_esito = new JLabel();
+                int esito = ControllerOperatore.registraMovimento("scarico",quantita,id_prodotto,id_Operatore);
+
+                if (esito == -2){
+                    label_esito.setText("Errore: Prodotto inesistente");
+                    JOptionPane.showMessageDialog(null,
+                            "Id inserito non corrispondente a nessun prodotto",
+                            "Prodotto non trovato",
+                            JOptionPane.ERROR_MESSAGE);
+
+                } else if (esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SUCCESSO){
+                    label_esito.setText("Movimento registrato con successo");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Movimento salvato e quantità aggiornata",
+                            "Salvataggio eseguito",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else if(esito == ControllerOperatore.ERRORE_QUANTITA_INSUFFICIENTE){
+                    label_esito.setText("Movimento non eseguito a causa di scarsità nelle scorte");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Movimento non eseguito",
+                            "Errore nel salvataggio",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else if(esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA){
+                    label_esito.setText("Movimento eseguito e prodotto segnato sotto scorta");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Movimento eseguito, quantità aggiornata e prodotto segnato sotto scorta",
+                            "Salvataggio eseguito",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else {
+                    label_esito.setText("Movimento non eseguito");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Movimento non eseguito,",
+                            "Errore nel salvataggio",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
 
             }
         });
