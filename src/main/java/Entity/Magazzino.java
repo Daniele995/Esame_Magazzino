@@ -39,9 +39,9 @@ public class Magazzino {
         return instance;
     }
 
-    public void inviaNotifica(Notifica notifica){
+    /*public void inviaNotifica(Notifica notifica){
         this.responsabile.riceviNotifica(notifica);
-    }
+    }*/
 
     public List<Prodotto> getProdotti() {
         return prodotti;

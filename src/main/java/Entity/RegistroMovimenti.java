@@ -35,7 +35,7 @@ public class RegistroMovimenti {
                 prodotto.setSottoscorta(true);
                 Notifica notifica = new Notifica("prodotto sotto scorta",Magazzino.getInstance().getResponsabile());
                 gestorePersistenza.salvaTutti(movimento, notifica);
-                Magazzino.getInstance().inviaNotifica(notifica);
+               // Magazzino.getInstance().inviaNotifica(notifica);
             }
         }
         return true;
