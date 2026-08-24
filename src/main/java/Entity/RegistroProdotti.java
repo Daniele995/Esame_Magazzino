@@ -1,5 +1,7 @@
 package Entity;
 
+import java.util.Objects;
+
 public class RegistroProdotti {
     private Magazzino magazzino = Magazzino.getInstance();
 
@@ -7,9 +9,9 @@ public class RegistroProdotti {
     public RegistroProdotti() {
     }
 
-    public Prodotto ricercaProdotto(int idProdotto){
+    public Prodotto ricercaProdotto(Long idProdotto){
         for (Prodotto p: magazzino.getProdotti()){
-            if(p.getId() == idProdotto){
+            if(Objects.equals(p.getId(), idProdotto)){
                 return p;
             }
         }

@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Prodotto {
     @Id
-    private int id;
+    private Long id;
     private String nome;
     private String descrizione;
     private String categoria;
@@ -18,7 +18,7 @@ public class Prodotto {
 
     public Prodotto() {}
 
-    public Prodotto(int id, int qtaDisponibile, int sogliaMinima) {
+    public Prodotto(Long id, int qtaDisponibile, int sogliaMinima) {
         this.id = id;
         this.qtaDisponibile = qtaDisponibile;
         this.sogliaMinima = sogliaMinima;
@@ -42,7 +42,7 @@ public class Prodotto {
         isSottoScorta = sottoscorta;
     }
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 

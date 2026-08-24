@@ -13,12 +13,15 @@ public class ControllerOperatore {
     public static final int MOVIMENTO_REGISTRATO_SOTTO_SCORTA=2;
     public static final int ERRORE_QUANTITA_INSUFFICIENTE=-1;
 
-    public static int registraMovimento(String tipo, int quantita, int id_prodotto, int id_Operatore){
+    public static int registraMovimento(String tipo, int quantita, Long id_prodotto, int id_Operatore){
 
         RegistroMovimenti registroMovimenti = new RegistroMovimenti();
         RegistroProdotti registroProdotti = new RegistroProdotti();
 
         Prodotto prodotto = registroProdotti.ricercaProdotto(id_prodotto);
+        if (prodotto == null){
+            return -2;
+        }
 
         if (tipo.equals("scarico") && quantita > prodotto.getQtaDisponibile()){
             return ERRORE_QUANTITA_INSUFFICIENTE;
