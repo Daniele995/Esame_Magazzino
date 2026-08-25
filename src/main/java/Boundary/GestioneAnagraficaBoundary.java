@@ -11,12 +11,22 @@ public class GestioneAnagraficaBoundary {
     private JButton creaProdotto;
 
     public GestioneAnagraficaBoundary() {
+
+        creaProdotto.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CreaProdottoBoundary creaProdottoBoundary = new CreaProdottoBoundary();
+                creaProdottoBoundary.apriCreaProdotto();
+            }
+        });
+
         modificaProdotto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
+
     }
 
     public void apriGestioneAnagrafica() {
@@ -29,4 +39,16 @@ public class GestioneAnagraficaBoundary {
     }
 
 
+    // TEST INTERFACCIA (e )
+    public static void main(String[] args) {
+
+        GestioneAnagraficaBoundary gestioneAnagraficaBoundary =
+                new GestioneAnagraficaBoundary();
+
+        gestioneAnagraficaBoundary.apriGestioneAnagrafica();
+    }
+
+
 }
+
+
