@@ -3,13 +3,16 @@ import Controller.ControllerOperatore;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 public class ConsultoElencoProdottiBoundary {
     private JPanel consultoElencoProdotti;
     private JTable elencoProdotti;
+    private JButton applica;
+    private JTextField filtro;
     private boolean datiDisponibili = true;
-
 
 
     public ConsultoElencoProdottiBoundary() {
@@ -26,10 +29,38 @@ public class ConsultoElencoProdottiBoundary {
                 modelloTabella.addRow(rigaProdotto);
             }
             elencoProdotti.setModel(modelloTabella);
+
         }else {
             datiDisponibili = false;
 
         }
+
+        // se viene applicato il filtro
+        applica.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String categoriaInserita = filtro.getText();
+
+                if (categoriaInserita != null && !categoriaInserita.isEmpty()) {
+                    List<String[]> risultati = controller.getProdottiPerCategoria(categoriaInserita);
+
+                    if (risultati != null && !risultati.isEmpty()) {
+                        modelloTabella.setRowCount(0);
+                        for (String[] riga : risultati) {
+                            modelloTabella.addRow(riga);
+                        }
+                    }else {
+                        JOptionPane.showMessageDialog(null, "Nessun prodotto corrisponde al filtro applicato!");
+                    }
+
+                }else {
+                    JOptionPane.showMessageDialog(null, "Errore: categoria non inserita correttamente!");
+
+                }
+
+            }
+        });
 
     }
 

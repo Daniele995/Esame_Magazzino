@@ -13,8 +13,14 @@ public class MainCreaTabelle {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("MagazzinoPU");
         GestorePersistenza gestorePersistenza = new GestorePersistenza();
 
-       // Prodotto prodotto1 = new Prodotto(3, "Biscotti", "Biscotti al burro", "Alimentari", 10, "A23", 4);
-       // gestorePersistenza.salva(prodotto1);
+        Prodotto prodotto1 = new Prodotto(1, "Biscotti", "Biscotti al burro", "Alimentari", 10, "A3", 4);
+        Prodotto prodotto2 = new Prodotto(2, "Biscotti1", "Biscotti", "Alimentari", 10, "A2", 5);
+        Prodotto prodotto3 = new Prodotto(3, "Biscotti2", "Biscotti vaniglia", "Alimentari", 10, "A1", 4);
+        Prodotto prodotto4 = new Prodotto(4, "Sedia", "Sedia pieghevole", "Casa", 10, "A44", 4);
+        gestorePersistenza.salva(prodotto1);
+        gestorePersistenza.salva(prodotto2);
+        gestorePersistenza.salva(prodotto3);
+        gestorePersistenza.salva(prodotto4);
 
         // Chiude la fabbrica subito dopo la prova
         emf.close();

@@ -11,6 +11,7 @@ public class SituazioneAggiornataMagazzinoBoundary {
         String[] colonne = {"Prodotto", "Quantità", "Sotto Scorta"};
         DefaultTableModel modelloTabella = new DefaultTableModel(colonne, 0);
         situazioneMagazzino.setModel(modelloTabella);
+        //Elenco prodotti, quantità disponibile e indicazione sottoscorta
     }
 
     public void apriSituazioneAggiornata(){

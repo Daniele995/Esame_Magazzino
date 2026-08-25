@@ -56,6 +56,11 @@ public class ControllerOperatore {
         return registroReport.consultaElencoProdotti();
     }
 
+    public List<String[]> getProdottiPerCategoria(String categoria) {
+        RegistroProdotti registroProdotti = new RegistroProdotti();
+        return registroProdotti.cercaProdottiPerCategoria(categoria);
+    }
+
     }
 
 
