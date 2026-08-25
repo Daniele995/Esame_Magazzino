@@ -17,7 +17,7 @@ public class Prodotto {
     private int sogliaMinima;
     private int qtaDisponibile;
     private String posizione;
-    private boolean isSottoScorta = false;
+    private boolean isSottoScorta;
 
     @OneToMany(mappedBy = "prodotto")
     private List<Movimento> movimenti = new ArrayList<>();
@@ -32,6 +32,8 @@ public class Prodotto {
         this.sogliaMinima = sogliaMinima;
         this.posizione = posizione;
         this.qtaDisponibile = qtaDisponibile;
+        this.isSottoScorta = qtaDisponibile<sogliaMinima;
+
     }
 
 

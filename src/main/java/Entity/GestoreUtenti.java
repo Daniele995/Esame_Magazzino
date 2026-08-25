@@ -46,7 +46,6 @@ public class GestoreUtenti {
 
     }
     public int verificaCredenziali(String email){
-        GestorePersistenza gestorePersistenza = new GestorePersistenza();
 
         Map<String, Object> parametri = Map.of("email", email);
 
