@@ -15,7 +15,7 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="consultoElenco"/>
+          <text value="Elenco dei Prodotti"/>
         </properties>
       </component>
       <component id="c7ee9" class="javax.swing.JButton" binding="consultaStoricoOperazioni">
@@ -23,7 +23,7 @@
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="consultaStoricoOperazioni"/>
+          <text value="Storico delle Operazioni"/>
         </properties>
       </component>
       <component id="d6b7e" class="javax.swing.JButton" binding="registraMovimento">
@@ -31,7 +31,7 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="registraMovimento"/>
+          <text value="Registra un Movimento"/>
         </properties>
       </component>
     </children>

@@ -2,6 +2,7 @@ package Entity;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("OPERATORE")
 public class Operatore extends Utente{
-    @OneToMany(mappedBy = "operatore")
+    @OneToMany(mappedBy = "operatore", fetch = FetchType.EAGER)
     private List<Movimento> storicoPersonale = new ArrayList<>(); //viene creato vuoto
 
     public Operatore() {

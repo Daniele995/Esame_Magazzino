@@ -32,19 +32,12 @@ public class Movimento {
         this.data = data;
         this.operatore = operatore;
         this.prodotto = prodotto;
-
-        /*if (operatore != null) {
-            operatore.aggiungiMovimento(this);
-        }
-        if (prodotto != null) {
-            prodotto.addMovimento(this);
-        }*/
 }
 
 
-    /*public void setProdotto(Prodotto prodotto) {
+    public void setProdotto(Prodotto prodotto) {
         this.prodotto = prodotto;
-    }*/
+    }
 
     public void setOperatore(Operatore operatore) {
         this.operatore = operatore;

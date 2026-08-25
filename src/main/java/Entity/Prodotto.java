@@ -1,6 +1,7 @@
 package Entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
@@ -19,7 +20,7 @@ public class Prodotto {
     private String posizione;
     private boolean isSottoScorta;
 
-    @OneToMany(mappedBy = "prodotto")
+    @OneToMany(mappedBy = "prodotto", fetch = FetchType.EAGER)
     private List<Movimento> movimenti = new ArrayList<>();
 
     public Prodotto() {}
@@ -37,12 +38,12 @@ public class Prodotto {
     }
 
 
-    /*public void addMovimento(Movimento movimento) {
+    public void addMovimento(Movimento movimento) {
         if (movimento != null && !movimenti.contains(movimento)) {
             movimenti.add(movimento);
             movimento.setProdotto(this);
         }
-    }*/
+    }
 
     public String getNome(){
         return this.nome;

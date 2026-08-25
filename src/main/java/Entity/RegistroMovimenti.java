@@ -30,11 +30,15 @@ public class RegistroMovimenti {
             Movimento movimento = new Movimento(tipo, qta, data, operatore, prodotto);
             gestorePersistenza.aggiorna(prodotto);
             gestorePersistenza.salva(movimento);
+            prodotto.addMovimento(movimento);
+            operatore.aggiungiMovimento(movimento);
+
+
 
             if(tipo.equals("scarico") && prodotto.getQtaDisponibile() < prodotto.getSogliaMinima()){
                 prodotto.setSottoscorta(true);
                 Notifica notifica = new Notifica("prodotto sotto scorta",Magazzino.getInstance().getResponsabile());
-                gestorePersistenza.salvaTutti(movimento, notifica);
+                gestorePersistenza.salva(notifica);
                // Magazzino.getInstance().inviaNotifica(notifica);
             }
         }
