@@ -142,7 +142,7 @@ public class CreaProdottoBoundary {
 
 
 
- //TEST INTERFACCIA (e creaProdottoValidazione)
+    /*TEST INTERFACCIA (e creaProdottoValidazione)
     public static void main(String[] args) {
 
         CreaProdottoBoundary creaProdottoBoundary =
@@ -150,5 +150,5 @@ public class CreaProdottoBoundary {
 
         creaProdottoBoundary.apriCreaProdotto();
     }
-
+    */
 }
