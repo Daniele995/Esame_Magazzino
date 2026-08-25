@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Boundary.CreaProdottoBoundary">
-  <grid id="27dc6" binding="CreaProdottoPanel" layout-manager="GridLayoutManager" row-count="8" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="40" vgap="-1">
+  <grid id="27dc6" binding="creaProdottoPanel" layout-manager="GridLayoutManager" row-count="7" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="40" vgap="-1">
     <margin top="15" left="25" bottom="20" right="50"/>
     <constraints>
-      <xy x="15" y="11" width="493" height="400"/>
+      <xy x="15" y="11" width="532" height="387"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="d966" class="javax.swing.JLabel" binding="CodiceProdotto">
+      <component id="d966" class="javax.swing.JLabel" binding="id">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Codice Prodotto"/>
+          <text value="ID Prodotto"/>
         </properties>
       </component>
-      <component id="78c84" class="javax.swing.JLabel" binding="NomeProdotto">
+      <component id="78c84" class="javax.swing.JLabel" binding="nome">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -24,7 +24,7 @@
           <text value="Nome Prodotto"/>
         </properties>
       </component>
-      <component id="907d1" class="javax.swing.JLabel" binding="Descrizione">
+      <component id="907d1" class="javax.swing.JLabel" binding="descrizione">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -32,7 +32,7 @@
           <text value="Descrizione"/>
         </properties>
       </component>
-      <component id="ca11b" class="javax.swing.JLabel" binding="Categoria">
+      <component id="ca11b" class="javax.swing.JLabel" binding="categoria">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -40,7 +40,7 @@
           <text value="Categoria"/>
         </properties>
       </component>
-      <component id="20010" class="javax.swing.JLabel" binding="SogliaMinima">
+      <component id="20010" class="javax.swing.JLabel" binding="sogliaMinima">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -48,7 +48,7 @@
           <text value="Soglia Minima"/>
         </properties>
       </component>
-      <component id="1f8fa" class="javax.swing.JLabel" binding="Posizione">
+      <component id="1f8fa" class="javax.swing.JLabel" binding="posizione">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -56,23 +56,7 @@
           <text value="Posizione"/>
         </properties>
       </component>
-      <component id="97997" class="javax.swing.JLabel" binding="ConfermaCreazione">
-        <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Conferma Creazione"/>
-        </properties>
-      </component>
-      <component id="a299f" class="javax.swing.JLabel" binding="Esito">
-        <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Esito"/>
-        </properties>
-      </component>
-      <component id="5ee71" class="javax.swing.JTextField" binding="CodiceProdottoTF">
+      <component id="5ee71" class="javax.swing.JTextField" binding="inserisciId">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -80,7 +64,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="e7726" class="javax.swing.JTextField" binding="NomeProdottoTF">
+      <component id="e7726" class="javax.swing.JTextField" binding="inserisciNome">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -88,7 +72,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="89c17" class="javax.swing.JTextField" binding="DescrizioneTF">
+      <component id="89c17" class="javax.swing.JTextField" binding="inserisciDescrizione">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -96,7 +80,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="4e2d5" class="javax.swing.JTextField" binding="CategoriaTF">
+      <component id="4e2d5" class="javax.swing.JTextField" binding="inserisciCategoria">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -104,15 +88,18 @@
         </constraints>
         <properties/>
       </component>
-      <component id="ef0be" class="javax.swing.JTextField" binding="SogliaMinimaTF">
+      <component id="ef0be" class="javax.swing.JTextField" binding="inserisciSoglia">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+          <toolTipText value=""/>
+        </properties>
       </component>
-      <component id="32602" class="javax.swing.JTextField" binding="PosizioneTF">
+      <component id="32602" class="javax.swing.JTextField" binding="inserisciPosizione">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -120,20 +107,12 @@
         </constraints>
         <properties/>
       </component>
-      <component id="5af89" class="javax.swing.JButton" binding="ConfermaCreazioneB">
+      <component id="5af89" class="javax.swing.JButton" binding="creaProdotto">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Salva"/>
-        </properties>
-      </component>
-      <component id="22a52" class="javax.swing.JLabel" binding="EsitoLabel">
-        <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Label"/>
         </properties>
       </component>
     </children>

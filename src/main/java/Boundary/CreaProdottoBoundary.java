@@ -6,37 +6,28 @@ import java.awt.event.ActionListener;
 
 public class CreaProdottoBoundary {
 
-    private JPanel CreaProdottoPanel;
+    private JPanel creaProdottoPanel;
 
-    //CODICE PRODOTTO
-    private JLabel CodiceProdotto;
-    private JTextField CodiceProdottoTF;
-    //NOME PRODOTTO
-    private JLabel NomeProdotto;
-    private JTextField NomeProdottoTF;
-    //DESCRIZIONE
-    private JLabel Descrizione;
-    private JTextField DescrizioneTF;
-    //CATEGORIA
-    private JLabel Categoria;
-    private JTextField CategoriaTF;
-    //SOGLIA MINIMA
-    private JLabel SogliaMinima;
-    private JTextField SogliaMinimaTF;
-    //POSIZIONE
-    private JLabel Posizione;
-    private JTextField PosizioneTF;
-    //CONFERMA CREAZIONE
-    private JLabel ConfermaCreazione;
-    private JButton ConfermaCreazioneB;
-    //ESITO
-    private JLabel Esito;
-    private JLabel EsitoLabel;
+    private JLabel id;              //CODICE PRODOTTO
+    private JLabel nome;            //NOME PRODOTTO
+    private JLabel descrizione;     //DESCRIZIONE
+    private JLabel categoria;       //CATEGORIA
+    private JLabel sogliaMinima;    //SOGLIA MINIMA
+    private JLabel posizione;       //POSIZIONE
+
+    private JTextField inserisciId;
+    private JTextField inserisciNome;
+    private JTextField inserisciDescrizione;
+    private JTextField inserisciCategoria;
+    private JTextField inserisciSoglia;
+    private JTextField inserisciPosizione;
+
+    private JButton creaProdotto;
 
 
     public CreaProdottoBoundary() {
 
-        ConfermaCreazioneB.addActionListener(new ActionListener() {
+        creaProdotto.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -47,12 +38,12 @@ public class CreaProdottoBoundary {
 
     private void creaProdottoValidazione() {
 
-        String codice = CodiceProdottoTF.getText();
-        String nome = NomeProdottoTF.getText();
-        String descrizione = DescrizioneTF.getText();
-        String categoria = CategoriaTF.getText();
-        String sogliaMinimaString = SogliaMinimaTF.getText();
-        String posizione = PosizioneTF.getText();
+        String codice = inserisciId.getText();
+        String nome = inserisciNome.getText();
+        String descrizione = inserisciDescrizione.getText();
+        String categoria = inserisciCategoria.getText();
+        String sogliaMinimaString = inserisciSoglia.getText();
+        String posizione = inserisciPosizione.getText();
 
         if (codice.isEmpty()) {
             JOptionPane.showMessageDialog(
@@ -94,16 +85,6 @@ public class CreaProdottoBoundary {
             return;
         }
 
-        if (sogliaMinimaString.isEmpty()) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "La soglia minima non può essere vuota.",
-                    "Errore di inserimento",
-                    JOptionPane.ERROR_MESSAGE
-            );
-            return;
-        }
-
         if (posizione.isEmpty()) {
             JOptionPane.showMessageDialog(
                     null,
@@ -115,40 +96,44 @@ public class CreaProdottoBoundary {
         }
 
         //La soglia minima deve essere un intero non negativo
-        int sogliaMinima;
+        int sogliaMinimaInt;
 
-        try {
-            sogliaMinima = Integer.parseInt(sogliaMinimaString);
-        } catch (NumberFormatException e) {
+        if (sogliaMinimaString.isEmpty()) {
+            sogliaMinimaInt = 0;
+        } else {
 
-            JOptionPane.showMessageDialog(
-                    null,
-                    "La soglia minima deve essere un numero intero.",
-                    "Errore di inserimento",
-                    JOptionPane.ERROR_MESSAGE
-            );
+            try {
+                sogliaMinimaInt = Integer.parseInt(sogliaMinimaString);
+            } catch (NumberFormatException e) {
 
-            return;
+                JOptionPane.showMessageDialog(
+                        null,
+                        "La soglia minima deve essere un numero intero.",
+                        "Errore di inserimento",
+                        JOptionPane.ERROR_MESSAGE
+                );
+
+                return;
+            }
+
+            if (sogliaMinimaInt < 0) {
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        "La soglia minima non può essere negativa.",
+                        "Errore di inserimento",
+                        JOptionPane.ERROR_MESSAGE
+                );
+
+                return;
+            }
         }
 
-        if (sogliaMinima < 0) {
-
-            JOptionPane.showMessageDialog(
-                    null,
-                    "La soglia minima non può essere negativa.",
-                    "Errore di inserimento",
-                    JOptionPane.ERROR_MESSAGE
-            );
-
-            return;
-        }
-
-        //EsitoLabel.setText("TEMP: I dati erano plausibili");
     }
 
     public void apriCreaProdotto() {
         JFrame frame = new JFrame("Crea Prodotto");
-        frame.setContentPane(this.CreaProdottoPanel);
+        frame.setContentPane(this.creaProdottoPanel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -157,7 +142,7 @@ public class CreaProdottoBoundary {
 
 
 
-/*  TEST INTERFACCIA (e creaProdottoValidazione)
+ //TEST INTERFACCIA (e creaProdottoValidazione)
     public static void main(String[] args) {
 
         CreaProdottoBoundary creaProdottoBoundary =
@@ -166,5 +151,4 @@ public class CreaProdottoBoundary {
         creaProdottoBoundary.apriCreaProdotto();
     }
 
- */
 }
