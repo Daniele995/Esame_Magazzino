@@ -42,6 +42,13 @@ public class Movimento {
 }
 
 
+    /*public void setProdotto(Prodotto prodotto) {
+        this.prodotto = prodotto;
+    }*/
+
+    public void setOperatore(Operatore operatore) {
+        this.operatore = operatore;
+    }
 
     public int getMovimento_id() {
         return Movimento_id;
@@ -63,8 +70,6 @@ public class Movimento {
         return operatore;
     }
 
-    /*public void setProdotto(Prodotto prodotto) {
-        this.prodotto = prodotto;
-    }*/
+
 }
 
