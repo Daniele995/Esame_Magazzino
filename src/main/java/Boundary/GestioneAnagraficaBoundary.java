@@ -39,7 +39,7 @@ public class GestioneAnagraficaBoundary {
     }
 
 
-    // TEST INTERFACCIA (e )
+    // TEST INTERFACCIA
     public static void main(String[] args) {
 
         GestioneAnagraficaBoundary gestioneAnagraficaBoundary =
