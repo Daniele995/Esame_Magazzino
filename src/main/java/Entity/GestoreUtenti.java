@@ -45,7 +45,7 @@ public class GestoreUtenti {
         }
 
     }
-    public int verificaCredenziali(String email){
+    public int trovaId(String email){
 
         Map<String, Object> parametri = Map.of("email", email);
 
