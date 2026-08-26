@@ -6,12 +6,15 @@ import javax.swing.table.DefaultTableModel;
 public class SituazioneAggiornataMagazzinoBoundary {
     private JPanel situazioneAggiornataMagazzinoPanel;
     private JTable situazioneMagazzino;
+    private boolean datiDisponibili = true;
 
     public SituazioneAggiornataMagazzinoBoundary(){
         String[] colonne = {"Prodotto", "Quantità", "Sotto Scorta"};
+        String[] elenco = {"ID", "Nome Prodotto", "Descrizione", "Categoria", "Soglia Minima", "Posizione", "Quantità disponibile", "Indicazione sotto scorta"};
+
         DefaultTableModel modelloTabella = new DefaultTableModel(colonne, 0);
         situazioneMagazzino.setModel(modelloTabella);
-        //Elenco prodotti, quantità disponibile e indicazione sottoscorta
+
     }
 
     public void apriSituazioneAggiornata(){

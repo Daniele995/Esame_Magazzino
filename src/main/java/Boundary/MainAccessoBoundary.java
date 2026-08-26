@@ -25,10 +25,12 @@ public class MainAccessoBoundary {
             public void actionPerformed(ActionEvent e) {
 
                 if (frameRegistrazione == null || !frameRegistrazione.isDisplayable()) {
+
                     RegistrazioneBoundary regBoundary = new RegistrazioneBoundary();
                     frameRegistrazione = regBoundary.apriFormRegistrazione();
 
                 }else {
+
                     frameRegistrazione.toFront();
                     frameRegistrazione.requestFocus();
                 }
@@ -38,11 +40,14 @@ public class MainAccessoBoundary {
         accedi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 String emailInserita = inserisciEmail.getText();
                 String ruoloSelezionato = (String) scegliRuolo.getSelectedItem();
 
-                if (emailInserita == null || emailInserita.isEmpty() || ruoloSelezionato == null || ruoloSelezionato.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Errore: credenziali non valide o ruolo errato!");
+                String errore = validaAccesso(emailInserita, ruoloSelezionato);
+
+                if (errore != null) {
+                    JOptionPane.showMessageDialog(null, errore, "Errore di validazione", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
@@ -67,6 +72,28 @@ public class MainAccessoBoundary {
 
             }
         });
+    }
+
+    private String validaAccesso(String email, String ruolo) {
+
+        if (email.isEmpty() || ruolo == null || ruolo.isEmpty()) {
+            return "Errore: inserisci l'email e seleziona un ruolo.";
+        }
+
+        // controllo email
+        else if (email.length() > 50) {
+            return "Errore: L'email non può superare i 50 caratteri.";
+        }
+
+        else if (!email.contains("@")) {
+            return "Errore: L'email non contiene il carattere '@'.";
+        }
+
+        else if (!email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+            return "Errore: L'email contiene caratteri speciali vietati.";
+        }
+
+        return null;
     }
 
     public static void main(String[] args) {

@@ -65,6 +65,7 @@ public class ConsultoElencoProdottiBoundary {
     }
 
     public JFrame apriConsultoElenco() {
+
         if (!datiDisponibili) {
             JOptionPane.showMessageDialog(null,
                     "Al momento non ci sono prodotti registrati nel magazzino.",
