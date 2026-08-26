@@ -23,7 +23,8 @@ public class GestioneAnagraficaBoundary {
         modificaProdotto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                ModificaProdottoBoundary modificaProdottoBoundary = new ModificaProdottoBoundary();
+                modificaProdottoBoundary.apriModificaProdotto();
             }
         });
 

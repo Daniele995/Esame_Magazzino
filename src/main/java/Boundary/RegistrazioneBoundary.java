@@ -23,16 +23,19 @@ public class RegistrazioneBoundary {
         invioDati.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 String nomeInserito = inserisciNome.getText();
                 String cognomeInserito = inserisciCognome.getText();
                 String emailInserita = inserisciEmail.getText();
                 String ruoloSelezionato = (String) scegliRuolo.getSelectedItem();
 
-                if (nomeInserito == null || nomeInserito.isEmpty() || cognomeInserito == null || cognomeInserito.isEmpty() || emailInserita == null || emailInserita.isEmpty() || ruoloSelezionato == null || ruoloSelezionato.isEmpty()){
-                    JOptionPane.showMessageDialog(null, "Errore nei dati inseriti o campi vuoti.");
+                String errore = validaCampi(nomeInserito, cognomeInserito, emailInserita, ruoloSelezionato);
+
+                if (errore != null) {
+                    JOptionPane.showMessageDialog(null, errore, "Errore di validazione", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                    ControllerAutenticazione controller = new ControllerAutenticazione();
+                ControllerAutenticazione controller = new ControllerAutenticazione();
                 int esito = controller.registrazioneUtente(nomeInserito, cognomeInserito, emailInserita, ruoloSelezionato);
 
                 if (esito == ControllerAutenticazione.REGISTRAZIONE_SUCCESSO) {
@@ -45,6 +48,41 @@ public class RegistrazioneBoundary {
 
             }
         });
+    }
+
+    private String validaCampi(String nome, String cognome, String email, String ruolo) {
+
+        if (nome.isEmpty() || cognome.isEmpty() || email.isEmpty() || ruolo == null || ruolo.isEmpty()) {
+            return "Errore: tutti i campi devono essere compilati.";
+        }
+        // controlli sul nome
+        else if (nome.length() > 40) {
+            return "Errore: Il nome non può superare i 40 caratteri.";
+        }
+        else if (!nome.matches("^[a-zA-ZÀ-ÿ\\s]+$")) {
+            return "Errore: Il nome contiene simboli o caratteri non consentiti.";
+        }
+
+        // controlli sul cognome
+        else if (cognome.length() > 40) {
+            return "Errore: Il cognome non può superare i 40 caratteri.";
+        }
+        else if (!cognome.matches("^[a-zA-ZÀ-ÿ\\s]+$")) {
+            return "Errore: Il cognome contiene simboli o caratteri non consentiti.";
+        }
+
+        // controlli email
+        else if (email.length() > 50) {
+            return "Errore: L'email non può superare i 50 caratteri.";
+        }
+        else if (!email.contains("@")) {
+            return "Errore: L'email non contiene il carattere '@'.";
+        }
+        else if (!email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+            return "Errore: L'email contiene caratteri speciali vietati.";
+        }
+        // se tutto va bene restituisco null
+        return null;
     }
 
     public JFrame apriFormRegistrazione() {
