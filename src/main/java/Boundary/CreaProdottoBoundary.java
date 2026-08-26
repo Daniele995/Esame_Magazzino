@@ -55,6 +55,34 @@ public class CreaProdottoBoundary {
             return;
         }
 
+        int idProdotto;
+
+        try {
+            idProdotto = Integer.parseInt(codice);
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Il codice prodotto deve essere un numero intero.",
+                    "Errore di inserimento",
+                    JOptionPane.ERROR_MESSAGE
+            );
+
+            return;
+        }
+
+        if (idProdotto < 0) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Il codice prodotto non può essere negativo.",
+                    "Errore di inserimento",
+                    JOptionPane.ERROR_MESSAGE
+            );
+
+            return;
+        }
+
         if (nome.isEmpty()) {
             JOptionPane.showMessageDialog(
                     null,
@@ -127,6 +155,7 @@ public class CreaProdottoBoundary {
 
                 return;
             }
+
         }
 
     }
