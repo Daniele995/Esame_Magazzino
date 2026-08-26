@@ -1,8 +1,6 @@
 package Entity;
 
 import Database.GestorePersistenza;
-
-import java.util.ArrayList;
 import java.util.Date;
 
 public class RegistroMovimenti {
@@ -27,20 +25,22 @@ public class RegistroMovimenti {
         } else {
             if (tipo.equals("scarico")) qta *= (-1);
             prodotto.aggiornaQta(qta);
-            Movimento movimento = new Movimento(tipo, qta, data, operatore, prodotto);
-            gestorePersistenza.aggiorna(prodotto);
-            gestorePersistenza.salva(movimento);
-            prodotto.addMovimento(movimento);
-            operatore.aggiungiMovimento(movimento);
-
-
 
             if(tipo.equals("scarico") && prodotto.getQtaDisponibile() < prodotto.getSogliaMinima()){
                 prodotto.setSottoscorta(true);
                 Notifica notifica = new Notifica("prodotto sotto scorta",Magazzino.getInstance().getResponsabile());
                 gestorePersistenza.salva(notifica);
                // Magazzino.getInstance().inviaNotifica(notifica);
+            } else if(tipo.equals("carico") && prodotto.getQtaDisponibile() >= prodotto.getSogliaMinima()){
+                prodotto.setSottoscorta(false);
             }
+
+            Movimento movimento = new Movimento(tipo, qta, data, operatore, prodotto);
+            gestorePersistenza.aggiorna(prodotto);
+            gestorePersistenza.salva(movimento);
+            prodotto.addMovimento(movimento);
+            operatore.aggiungiMovimento(movimento);
+
         }
         return true;
 

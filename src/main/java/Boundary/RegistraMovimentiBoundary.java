@@ -23,9 +23,23 @@ public class RegistraMovimentiBoundary {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("Premuto bottone");
-                int id_prodotto = Integer.parseInt(inserisciId.getText());
-                int quantita = Integer.parseInt(inserisciQuantita.getText());
+                System.out.println("Premuto bottone carico");
+                int id_prodotto = 0;
+                int quantita = 0;
+
+                try{
+                    id_prodotto = Integer.parseInt(inserisciId.getText());
+                    quantita = Integer.parseInt(inserisciQuantita.getText());
+                } catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Inserire dati numerici validi in entrambi i campi",
+                            "Campi vuoti o errati",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                    return;
+                }
+
 
                 label_esito = new JLabel();
                 int esito = ControllerOperatore.registraMovimento("carico",quantita,id_prodotto,id_Operatore);
@@ -49,7 +63,15 @@ public class RegistraMovimentiBoundary {
                     label_esito.setText("Movimento registrato con successo");
                     JOptionPane.showMessageDialog(
                             null,
-                            "Movimento salvato e quantità aggiornata, ma il prodotto è rimasto sotto scorta",
+                            "Movimento salvato e quantità aggiornata, ma il prodotto è ancora sotto scorta",
+                            "Salvataggio eseguito",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else if(esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA_RIMOSSO){
+                    label_esito.setText("Movimento registrato con successo");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Movimento salvato e quantità aggiornata, il prodotto non è più sotto scorta",
                             "Salvataggio eseguito",
                             JOptionPane.INFORMATION_MESSAGE
                     );
@@ -70,10 +92,23 @@ public class RegistraMovimentiBoundary {
         registraScarico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Premuto Bottone");
+                System.out.println("Premuto bottone scarico");
 
-                int id_prodotto = Integer.parseInt(inserisciId.getText());
-                int quantita = Integer.parseInt(inserisciQuantita.getText());
+                int id_prodotto = 0;
+                int quantita = 0;
+
+                try{
+                    id_prodotto = Integer.parseInt(inserisciId.getText());
+                    quantita = Integer.parseInt(inserisciQuantita.getText());
+                } catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Inserire dati numerici validi in entrambi i campi",
+                            "Campi vuoti o errati",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                    return;
+                }
 
                 label_esito = new JLabel();
                 int esito = ControllerOperatore.registraMovimento("scarico",quantita,id_prodotto,id_Operatore);
