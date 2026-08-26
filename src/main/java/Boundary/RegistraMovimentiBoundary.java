@@ -5,6 +5,7 @@ import Controller.ControllerOperatore;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 
 public class RegistraMovimentiBoundary {
     private JPanel RegistraMovimentiPanel;
@@ -30,6 +31,26 @@ public class RegistraMovimentiBoundary {
                 try{
                     id_prodotto = Integer.parseInt(inserisciId.getText());
                     quantita = Integer.parseInt(inserisciQuantita.getText());
+
+                    if(quantita <= 0){
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "La quantità dev'essere maggiore di 0",
+                                "Quantità non valida",
+                                JOptionPane.WARNING_MESSAGE
+                        );
+                        return;
+                    }
+
+                    if (id_prodotto <= 0){
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "L'id dev'essere maggiore di 0",
+                                "Id non valido",
+                                JOptionPane.WARNING_MESSAGE
+                        );
+                        return;
+                    }
                 } catch (NumberFormatException ex){
                     JOptionPane.showMessageDialog(
                             null,
