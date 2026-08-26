@@ -20,6 +20,9 @@ public class MainAccessoBoundary {
 
 
     public MainAccessoBoundary() {
+
+        scegliRuolo.setSelectedIndex(-1);
+
         registrati.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -76,7 +79,7 @@ public class MainAccessoBoundary {
 
     private String validaAccesso(String email, String ruolo) {
 
-        if (email.isEmpty() || ruolo == null || ruolo.isEmpty()) {
+        if (email.isEmpty() || ruolo == null ) {
             return "Errore: inserisci l'email e seleziona un ruolo.";
         }
 

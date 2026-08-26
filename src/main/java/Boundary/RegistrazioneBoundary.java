@@ -20,6 +20,9 @@ public class RegistrazioneBoundary {
 
 
     public RegistrazioneBoundary() {
+
+        scegliRuolo.setSelectedIndex(-1);
+
         invioDati.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,7 +55,7 @@ public class RegistrazioneBoundary {
 
     private String validaCampi(String nome, String cognome, String email, String ruolo) {
 
-        if (nome.isEmpty() || cognome.isEmpty() || email.isEmpty() || ruolo == null || ruolo.isEmpty()) {
+        if (nome.isEmpty() || cognome.isEmpty() || email.isEmpty() || ruolo == null) {
             return "Errore: tutti i campi devono essere compilati.";
         }
         // controlli sul nome
