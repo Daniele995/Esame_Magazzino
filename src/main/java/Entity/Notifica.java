@@ -22,9 +22,9 @@ public class Notifica {
         this.messaggio = messaggio;
         this.responsabile = responsabile;
 
-       /* if (responsabile != null) {
+       if (responsabile != null) {
             responsabile.riceviNotifica(this);
-        }*/
+       }
     }
 
     public int getId() {
@@ -33,5 +33,9 @@ public class Notifica {
 
     public String getMessaggio() {
         return messaggio;
+    }
+
+    public Responsabile getResponsabile(){
+        return this.responsabile;
     }
 }

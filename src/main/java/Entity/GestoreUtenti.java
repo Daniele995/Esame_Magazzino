@@ -2,6 +2,7 @@ package Entity;
 
 import Database.GestorePersistenza;
 
+import java.util.List;
 import java.util.Map;
 
 public class GestoreUtenti {
@@ -55,5 +56,10 @@ public class GestoreUtenti {
             return utente.getId();
         }
         return -1;
+    }
+
+    public static List<Responsabile> listaResponsabili(){
+        GestorePersistenza gestorePersistenza = new GestorePersistenza();
+        return gestorePersistenza.cercaTutti(Responsabile.class);
     }
 }

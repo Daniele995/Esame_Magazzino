@@ -2,6 +2,7 @@ package Entity;
 
 import Database.GestorePersistenza;
 import java.util.Date;
+import java.util.List;
 
 public class RegistroMovimenti {
 
@@ -28,9 +29,13 @@ public class RegistroMovimenti {
 
             if(tipo.equals("scarico") && prodotto.getQtaDisponibile() < prodotto.getSogliaMinima()){
                 prodotto.setSottoscorta(true);
-                Notifica notifica = new Notifica("prodotto sotto scorta",Magazzino.getInstance().getResponsabile());
-                gestorePersistenza.salva(notifica);
-               // Magazzino.getInstance().inviaNotifica(notifica);
+
+                List<Responsabile> listaResponsabili = GestoreUtenti.listaResponsabili();
+
+                for(Responsabile resp: listaResponsabili){
+                    Notifica notifica = new Notifica("Il prodotto con ID "+ prodotto.getId()+ " è sotto scorta",resp);
+                    gestorePersistenza.salva(notifica);
+                }
             } else if(tipo.equals("carico") && prodotto.getQtaDisponibile() >= prodotto.getSogliaMinima()){
                 prodotto.setSottoscorta(false);
             }
@@ -45,4 +50,5 @@ public class RegistroMovimenti {
         return true;
 
     }
+
 }

@@ -3,6 +3,7 @@ package Entity;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 
 
@@ -12,8 +13,8 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("RESPONSABILE")
 public class Responsabile extends Utente {
-    @OneToMany(mappedBy = "responsabile")
-    private List<Notifica> notifiche=new ArrayList<>();  //viene creato vuoto
+    @OneToMany(mappedBy = "responsabile", fetch = FetchType.EAGER)
+    private List<Notifica> notifiche = new ArrayList<>();  //viene creato vuoto
 
     public Responsabile() {
         super();
