@@ -23,9 +23,23 @@ public class RegistraMovimentiBoundary {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("Premuto bottone");
-                int id_prodotto = Integer.parseInt(inserisciId.getText());
-                int quantita = Integer.parseInt(inserisciQuantita.getText());
+                System.out.println("Premuto bottone carico");
+                int id_prodotto = 0;
+                int quantita = 0;
+
+                try{
+                    id_prodotto = Integer.parseInt(inserisciId.getText());
+                    quantita = Integer.parseInt(inserisciQuantita.getText());
+                } catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Inserire dati numerici validi in entrambi i campi",
+                            "Campi vuoti o errati",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                    return;
+                }
+
 
                 label_esito = new JLabel();
                 int esito = ControllerOperatore.registraMovimento("carico",quantita,id_prodotto,id_Operatore);
@@ -78,10 +92,23 @@ public class RegistraMovimentiBoundary {
         registraScarico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Premuto Bottone");
+                System.out.println("Premuto bottone scarico");
 
-                int id_prodotto = Integer.parseInt(inserisciId.getText());
-                int quantita = Integer.parseInt(inserisciQuantita.getText());
+                int id_prodotto = 0;
+                int quantita = 0;
+
+                try{
+                    id_prodotto = Integer.parseInt(inserisciId.getText());
+                    quantita = Integer.parseInt(inserisciQuantita.getText());
+                } catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Inserire dati numerici validi in entrambi i campi",
+                            "Campi vuoti o errati",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                    return;
+                }
 
                 label_esito = new JLabel();
                 int esito = ControllerOperatore.registraMovimento("scarico",quantita,id_prodotto,id_Operatore);
