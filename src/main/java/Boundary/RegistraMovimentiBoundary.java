@@ -49,7 +49,15 @@ public class RegistraMovimentiBoundary {
                     label_esito.setText("Movimento registrato con successo");
                     JOptionPane.showMessageDialog(
                             null,
-                            "Movimento salvato e quantità aggiornata, ma il prodotto è rimasto sotto scorta",
+                            "Movimento salvato e quantità aggiornata, ma il prodotto è ancora sotto scorta",
+                            "Salvataggio eseguito",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                } else if(esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA_RIMOSSO){
+                    label_esito.setText("Movimento registrato con successo");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Movimento salvato e quantità aggiornata, il prodotto non è più sotto scorta",
                             "Salvataggio eseguito",
                             JOptionPane.INFORMATION_MESSAGE
                     );
