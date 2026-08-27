@@ -10,7 +10,7 @@ public class ControllerAutenticazione {
     public static final int ACCESSO_SUCCESSO = 2;
 
 
-    public int registrazioneUtente(String nome, String cognome, String email, String ruoloPassato) {
+    public static int registrazioneUtente(String nome, String cognome, String email, String ruoloPassato) {
 
         Ruolo ruolo = Ruolo.valueOf(ruoloPassato.toUpperCase()); //Converto per enum
         GestoreUtenti gestore = new GestoreUtenti();
@@ -18,7 +18,7 @@ public class ControllerAutenticazione {
     }
 
 
-    public int accessoUtente(String email, String ruoloPassato) {
+    public static int accessoUtente(String email, String ruoloPassato) {
         Ruolo ruolo = Ruolo.valueOf(ruoloPassato.toUpperCase()); //Converto per enum
         GestoreUtenti gestore = new GestoreUtenti();
         return  gestore.accesso(email,ruolo);

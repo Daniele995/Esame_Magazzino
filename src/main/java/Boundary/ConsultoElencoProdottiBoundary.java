@@ -17,7 +17,7 @@ public class ConsultoElencoProdottiBoundary {
 
     public ConsultoElencoProdottiBoundary() {
         // Attributi dell'elenco da mostrare
-        String[] elenco = {"ID", "Nome Prodotto", "Descrizione", "Categoria", "Soglia Minima", "Posizione", "Quantità disponibile"};
+        String[] elenco = {"ID", "Nome", "Descrizione", "Categoria", "Soglia Minima", "Posizione", "Quantità"};
 
         DefaultTableModel modelloTabella = new DefaultTableModel(elenco, 0);
 

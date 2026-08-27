@@ -38,8 +38,8 @@ public class RegistrazioneBoundary {
                     JOptionPane.showMessageDialog(null, errore, "Errore di validazione", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                ControllerAutenticazione controller = new ControllerAutenticazione();
-                int esito = controller.registrazioneUtente(nomeInserito, cognomeInserito, emailInserita, ruoloSelezionato);
+
+                int esito = ControllerAutenticazione.registrazioneUtente(nomeInserito, cognomeInserito, emailInserita, ruoloSelezionato);
 
                 if (esito == ControllerAutenticazione.REGISTRAZIONE_SUCCESSO) {
                     JOptionPane.showMessageDialog(null, "Registrazione avvenuta con successo!");
@@ -47,7 +47,6 @@ public class RegistrazioneBoundary {
                 } else if (esito == ControllerAutenticazione.EMAIL_GIA_ESISTENTE) {
                     JOptionPane.showMessageDialog(null, "Errore: questa email è già registrata.");
                 }
-
 
             }
         });

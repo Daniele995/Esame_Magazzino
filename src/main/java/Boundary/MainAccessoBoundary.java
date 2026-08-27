@@ -28,16 +28,12 @@ public class MainAccessoBoundary {
             public void actionPerformed(ActionEvent e) {
 
                 if (frameRegistrazione == null || !frameRegistrazione.isDisplayable()) {
-
                     RegistrazioneBoundary regBoundary = new RegistrazioneBoundary();
                     frameRegistrazione = regBoundary.apriFormRegistrazione();
-
                 }else {
-
                     frameRegistrazione.toFront();
                     frameRegistrazione.requestFocus();
                 }
-
             }
         });
         accedi.addActionListener(new ActionListener() {
@@ -54,25 +50,7 @@ public class MainAccessoBoundary {
                     return;
                 }
 
-                ControllerAutenticazione controller = new ControllerAutenticazione();
-                int esito = controller.accessoUtente(emailInserita, ruoloSelezionato);
-
-                if  (esito == ControllerAutenticazione.ACCESSO_SUCCESSO) {
-                    int idUtente = ControllerAutenticazione.getId(emailInserita);
-
-                    if ("Responsabile".equals(ruoloSelezionato)) {
-                        AreaResponsabileBoundary areaResp = new AreaResponsabileBoundary();
-                        frameResponsabile = areaResp.apriFormResponsabile();
-
-                    } else if ("Operatore".equals(ruoloSelezionato)) {
-                        AreaOperatoreBoundary areaOp = new AreaOperatoreBoundary(idUtente);
-                        frameOperatore = areaOp.apriFormOperatore();
-                    }
-
-                }else if (esito == ControllerAutenticazione.ERRORE_DATI){
-                    JOptionPane.showMessageDialog(null, "Nessuna corrispondenza, registrati");
-                }
-
+                accessoUtente(emailInserita, ruoloSelezionato);
             }
         });
     }
@@ -82,21 +60,39 @@ public class MainAccessoBoundary {
         if (email.isEmpty() || ruolo == null ) {
             return "Errore: inserisci l'email e seleziona un ruolo.";
         }
-
         // controllo email
         else if (email.length() > 50) {
             return "Errore: L'email non può superare i 50 caratteri.";
         }
-
         else if (!email.contains("@")) {
             return "Errore: L'email non contiene il carattere '@'.";
         }
-
         else if (!email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
             return "Errore: L'email contiene caratteri speciali vietati.";
         }
-
         return null;
+    }
+
+    private void accessoUtente(String emailInserita, String ruoloSelezionato){
+
+        int esito = ControllerAutenticazione.accessoUtente(emailInserita, ruoloSelezionato);
+
+        if  (esito == ControllerAutenticazione.ACCESSO_SUCCESSO) {
+            int idUtente = ControllerAutenticazione.getId(emailInserita);
+
+            if ("Responsabile".equals(ruoloSelezionato)) {
+                AreaResponsabileBoundary areaResp = new AreaResponsabileBoundary();
+                frameResponsabile = areaResp.apriFormResponsabile();
+
+            } else if ("Operatore".equals(ruoloSelezionato)) {
+                AreaOperatoreBoundary areaOp = new AreaOperatoreBoundary(idUtente);
+                frameOperatore = areaOp.apriFormOperatore();
+            }
+
+        }else if (esito == ControllerAutenticazione.ERRORE_DATI){
+            JOptionPane.showMessageDialog(null, "Nessuna corrispondenza, registrati");
+        }
+
     }
 
     public static void main(String[] args) {

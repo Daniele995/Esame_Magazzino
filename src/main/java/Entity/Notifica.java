@@ -2,8 +2,6 @@ package Entity;
 
 import jakarta.persistence.*;
 
-
-
 @Entity
 public class Notifica {
     @Id
