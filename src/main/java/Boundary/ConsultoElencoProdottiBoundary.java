@@ -12,17 +12,32 @@ public class ConsultoElencoProdottiBoundary {
     private JTable elencoProdotti;
     private JButton applica;
     private JTextField filtro;
+    private JLabel inserireFiltroPerCategoria;
     private boolean datiDisponibili = true;
-
+    private DefaultTableModel modelloTabella;
 
     public ConsultoElencoProdottiBoundary() {
-        // Attributi dell'elenco da mostrare
+
+        caricaDatiTabella();
+
+        // se viene applicato il filtro
+        applica.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                caricaDatiTabellaFiltrata();
+            }
+        });
+
+    }
+
+    private void caricaDatiTabella() {
+
         String[] elenco = {"ID", "Nome", "Descrizione", "Categoria", "Soglia Minima", "Posizione", "Quantità"};
 
-        DefaultTableModel modelloTabella = new DefaultTableModel(elenco, 0);
+        modelloTabella = new DefaultTableModel(elenco, 0);
 
-        ControllerOperatore controller = new ControllerOperatore();
-        List<String[]> listaProdotti = controller.getElencoProdotti();
+        List<String[]> listaProdotti = ControllerOperatore.getElencoProdotti();
 
         if (listaProdotti != null && !listaProdotti.isEmpty()) {
             for (String[] rigaProdotto : listaProdotti) {
@@ -34,34 +49,28 @@ public class ConsultoElencoProdottiBoundary {
             datiDisponibili = false;
 
         }
+    }
 
-        // se viene applicato il filtro
-        applica.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+    private void caricaDatiTabellaFiltrata() {
 
-                String categoriaInserita = filtro.getText();
+        String categoriaInserita = filtro.getText();
 
-                if (categoriaInserita != null && !categoriaInserita.isEmpty()) {
-                    List<String[]> risultati = controller.getProdottiPerCategoria(categoriaInserita);
+        if (categoriaInserita != null && !categoriaInserita.isEmpty()) {
+            List<String[]> risultati = ControllerOperatore.getProdottiPerCategoria(categoriaInserita);
 
-                    if (risultati != null && !risultati.isEmpty()) {
-                        modelloTabella.setRowCount(0);
-                        for (String[] riga : risultati) {
-                            modelloTabella.addRow(riga);
-                        }
-                    }else {
-                        JOptionPane.showMessageDialog(null, "Nessun prodotto corrisponde al filtro applicato!");
-                    }
-
-                }else {
-                    JOptionPane.showMessageDialog(null, "Errore: categoria non inserita correttamente!");
-
+            if (risultati != null && !risultati.isEmpty()) {
+                modelloTabella.setRowCount(0);
+                for (String[] riga : risultati) {
+                    modelloTabella.addRow(riga);
                 }
-
+            }else {
+                JOptionPane.showMessageDialog(null, "Nessun prodotto corrisponde al filtro applicato!");
             }
-        });
 
+        }else {
+            JOptionPane.showMessageDialog(null, "Errore: categoria non inserita correttamente!");
+
+        }
     }
 
     public JFrame apriConsultoElenco() {

@@ -67,12 +67,12 @@ public class ControllerOperatore {
         return righe;
     }
 
-    public List<String[]> getElencoProdotti() {
+    public static List<String[]> getElencoProdotti() {
         RegistroReport registroReport = new RegistroReport();
         return registroReport.consultaElencoProdotti();
     }
 
-    public List<String[]> getProdottiPerCategoria(String categoria) {
+    public static List<String[]> getProdottiPerCategoria(String categoria) {
         RegistroProdotti registroProdotti = new RegistroProdotti();
         return registroProdotti.cercaProdottiPerCategoria(categoria);
     }
