@@ -14,6 +14,7 @@ public class RegistroProdotti {
     }
 
     public List<String[]> cercaProdottiPerCategoria(String categoriaCercata) {
+
         List<String[]> elencoFiltrato = new ArrayList<>();
         // Recupero tutti i prodotti
         List<Prodotto> listaProdotti = gestorePersistenza.cercaTutti(Prodotto.class);

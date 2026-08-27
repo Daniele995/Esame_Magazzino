@@ -22,8 +22,7 @@ public class RegistroReport {
         if (listaProdotti != null) {
             for (Prodotto p : listaProdotti) {
                 // Array di stringhe con i campi da mostrare nella tabella
-                String[] riga = {
-                        String.valueOf(p.getId()),
+                String[] riga = {String.valueOf(p.getId()),
                         p.getNome(),
                         p.getDescrizione(),
                         p.getCategoria(),

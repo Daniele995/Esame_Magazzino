@@ -19,15 +19,7 @@ public class GestoreUtenti {
             return 0;
         }
 
-        boolean esito=false;
-
-            if (ruolo == Ruolo.OPERATORE) {
-                Utente nuovoUtente = new Operatore(nome, cognome, email);
-                esito = gestorePersistenza.salva(nuovoUtente);
-            } else if (ruolo == Ruolo.RESPONSABILE) {
-                Utente nuovoUtente = new Responsabile(nome, cognome, email);
-                esito = gestorePersistenza.salva(nuovoUtente);
-            }
+        boolean esito=creaUtente(nome,cognome,email,ruolo);
 
         if (esito) {
             return 1;
@@ -39,6 +31,17 @@ public class GestoreUtenti {
     private boolean esisteUtente(String email){
         Utente utente = gestorePersistenza.cercaPrimoPerCampi(Utente.class, Map.of("email", email));
         return utente != null;
+    }
+
+    private boolean creaUtente(String nome,String cognome,String email,Ruolo ruolo) {
+        if (ruolo == Ruolo.OPERATORE) {
+            Utente nuovoUtente = new Operatore(nome, cognome, email);
+            return gestorePersistenza.salva(nuovoUtente);
+        } else if (ruolo == Ruolo.RESPONSABILE) {
+            Utente nuovoUtente = new Responsabile(nome, cognome, email);
+            return gestorePersistenza.salva(nuovoUtente);
+        }else { return false; }
+
     }
 
     public int accesso(String email, Ruolo ruolo) {
