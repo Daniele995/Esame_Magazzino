@@ -26,7 +26,7 @@ public class MainAccessoBoundary {
         registrati.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                // evito di creare sempre pagine di registrazione
                 if (frameRegistrazione == null || !frameRegistrazione.isDisplayable()) {
                     RegistrazioneBoundary regBoundary = new RegistrazioneBoundary();
                     frameRegistrazione = regBoundary.apriFormRegistrazione();

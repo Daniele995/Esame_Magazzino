@@ -15,11 +15,10 @@ public class GestoreUtenti {
 
     public int registrazione(String nome, String cognome, String email, Ruolo ruolo) {
 
-        Utente utente = gestorePersistenza.cercaPrimoPerCampi(Utente.class, Map.of("email", email));
-
-        if (utente != null) {
+        if(esisteUtente(email)){
             return 0;
         }
+
         boolean esito=false;
 
             if (ruolo == Ruolo.OPERATORE) {
@@ -35,6 +34,11 @@ public class GestoreUtenti {
         }else {
             return -1;
         }
+    }
+
+    private boolean esisteUtente(String email){
+        Utente utente = gestorePersistenza.cercaPrimoPerCampi(Utente.class, Map.of("email", email));
+        return utente != null;
     }
 
     public int accesso(String email, Ruolo ruolo) {
