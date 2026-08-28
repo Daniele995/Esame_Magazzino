@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ControllerOperatore {
-    public static final int MOVIMENTO_NON_REGISTRATO=0;
+    public static final int ERRORE_PRODOTTO_NON_TROVATO=0;
     public static final int MOVIMENTO_REGISTRATO_SUCCESSO=1;
     public static final int MOVIMENTO_REGISTRATO_SOTTO_SCORTA=2;
     public static final int ERRORE_QUANTITA_INSUFFICIENTE=-1;
@@ -20,8 +20,9 @@ public class ControllerOperatore {
         RegistroProdotti registroProdotti = new RegistroProdotti();
 
         Prodotto prodotto = registroProdotti.ricercaProdotto(id_prodotto);
+
         if (prodotto == null){
-            return -2;
+            return ERRORE_PRODOTTO_NON_TROVATO;
         }
 
         if (tipo.equals("scarico") && quantita > prodotto.getQtaDisponibile()){
@@ -38,7 +39,7 @@ public class ControllerOperatore {
         boolean saraSottoScorta = (nuovaQuantita < prodotto.getSogliaMinima());
 
         RegistroMovimenti registroMovimenti = new RegistroMovimenti();
-        registroMovimenti.registraMovimento(id_prodotto, tipo, quantita, new Date(), id_Operatore);
+        registroMovimenti.registraMovimento(prodotto, tipo, quantita, new Date(), id_Operatore);
 
         if (eraSottoScorta && !saraSottoScorta){
             return MOVIMENTO_REGISTRATO_SOTTO_SCORTA_RIMOSSO;

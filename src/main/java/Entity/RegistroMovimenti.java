@@ -12,18 +12,8 @@ public class RegistroMovimenti {
         gestorePersistenza = new GestorePersistenza();
     }
 
-    public boolean registraMovimento(int id_prodotto, String tipo, int qta, Date data, int id_Operatore){
+    public void registraMovimento(Prodotto prodotto, String tipo, int qta, Date data, int id_Operatore){
 
-        Prodotto prodotto = gestorePersistenza.trovaPerId(Prodotto.class, (long) id_prodotto);
-        Operatore operatore = gestorePersistenza.trovaPerId(Operatore.class, (long) id_Operatore);
-        if (prodotto == null){
-            System.out.println("Errore: Prodotto non trovato nel DB");
-            return false;
-        }
-
-        if (tipo.equals("scarico") && qta > prodotto.getQtaDisponibile()){
-            return false;
-        } else {
             if (tipo.equals("scarico")) qta *= (-1);
             prodotto.aggiornaQta(qta);
 
@@ -40,14 +30,12 @@ public class RegistroMovimenti {
                 prodotto.setSottoscorta(false);
             }
 
+            Operatore operatore = gestorePersistenza.trovaPerId(Operatore.class, (long) id_Operatore);
             Movimento movimento = new Movimento(tipo, qta, data, operatore, prodotto);
             gestorePersistenza.aggiorna(prodotto);
             gestorePersistenza.salva(movimento);
             prodotto.addMovimento(movimento);
             operatore.aggiungiMovimento(movimento);
-
-        }
-        return true;
 
     }
 

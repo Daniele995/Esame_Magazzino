@@ -65,7 +65,7 @@ public class RegistraMovimentiBoundary {
                 label_esito = new JLabel();
                 int esito = ControllerOperatore.registraMovimento("carico",quantita,id_prodotto,id_Operatore);
 
-                if (esito == -2){
+                if (esito == ControllerOperatore.ERRORE_PRODOTTO_NON_TROVATO){
                     label_esito.setText("Errore: Prodotto inesistente");
                     JOptionPane.showMessageDialog(null,
                             "Id inserito non corrispondente a nessun prodotto",
@@ -100,7 +100,7 @@ public class RegistraMovimentiBoundary {
                     label_esito.setText("Movimento non eseguito");
                     JOptionPane.showMessageDialog(
                             null,
-                            "Movimento non eseguito,",
+                            "Movimento non eseguito",
                             "Errore nel salvataggio",
                             JOptionPane.INFORMATION_MESSAGE
                     );
@@ -134,7 +134,7 @@ public class RegistraMovimentiBoundary {
                 label_esito = new JLabel();
                 int esito = ControllerOperatore.registraMovimento("scarico",quantita,id_prodotto,id_Operatore);
 
-                if (esito == -2){
+                if (esito == ControllerOperatore.ERRORE_PRODOTTO_NON_TROVATO){
                     label_esito.setText("Errore: Prodotto inesistente");
                     JOptionPane.showMessageDialog(null,
                             "Id inserito non corrispondente a nessun prodotto",
