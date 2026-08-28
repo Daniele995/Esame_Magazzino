@@ -148,14 +148,8 @@ public class GestorePersistenza {
         try {
             em.getTransaction().begin();
 
-            /*
-             * Cerchiamo nel database l'oggetto da eliminare,
-             * usando la sua classe e il suo id.
-             */
-
             T oggetto = em.find(classe, id);
 
-            //se l'oggetto esiste, lo eliminiamo
             if (oggetto != null) {
                 em.remove(oggetto);
                 em.getTransaction().commit();
