@@ -53,6 +53,18 @@ public class CreaProdottoBoundary {
             return;
         }
 
+        if (nome.length() > 45) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Il nome prodotto non può superare i 45 caratteri.",
+                    "Errore di inserimento",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+
+
         if (descrizione.isEmpty()) {
             JOptionPane.showMessageDialog(
                     null,
@@ -62,6 +74,18 @@ public class CreaProdottoBoundary {
             );
             return;
         }
+
+        if (descrizione.length() > 255) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "La descrizione non può superare i 255 caratteri.",
+                    "Errore di inserimento",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+
 
         if (categoria.isEmpty()) {
             JOptionPane.showMessageDialog(
@@ -73,10 +97,32 @@ public class CreaProdottoBoundary {
             return;
         }
 
+        if (categoria.length() > 45) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "La categoria non può superare i 45 caratteri.",
+                    "Errore di inserimento",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+
+
         if (posizione.isEmpty()) {
             JOptionPane.showMessageDialog(
                     null,
                     "La posizione non può essere vuota.",
+                    "Errore di inserimento",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        if (posizione.length() > 45) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "La posizione non può superare i 45 caratteri.",
                     "Errore di inserimento",
                     JOptionPane.ERROR_MESSAGE
             );
