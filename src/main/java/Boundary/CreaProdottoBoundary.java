@@ -8,14 +8,12 @@ public class CreaProdottoBoundary {
 
     private JPanel creaProdottoPanel;
 
-    private JLabel id;              //CODICE PRODOTTO
     private JLabel nome;            //NOME PRODOTTO
     private JLabel descrizione;     //DESCRIZIONE
     private JLabel categoria;       //CATEGORIA
     private JLabel sogliaMinima;    //SOGLIA MINIMA
     private JLabel posizione;       //POSIZIONE
 
-    private JTextField inserisciId;
     private JTextField inserisciNome;
     private JTextField inserisciDescrizione;
     private JTextField inserisciCategoria;
@@ -38,50 +36,12 @@ public class CreaProdottoBoundary {
 
     private void creaProdottoValidazione() {
 
-        String codice = inserisciId.getText();
         String nome = inserisciNome.getText();
         String descrizione = inserisciDescrizione.getText();
         String categoria = inserisciCategoria.getText();
         String sogliaMinimaString = inserisciSoglia.getText();
         String posizione = inserisciPosizione.getText();
 
-        if (codice.isEmpty()) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Il codice prodotto non può essere vuoto.",
-                    "Errore di inserimento",
-                    JOptionPane.ERROR_MESSAGE
-            );
-            return;
-        }
-
-        int idProdotto;
-
-        try {
-            idProdotto = Integer.parseInt(codice);
-        } catch (NumberFormatException e) {
-
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Il codice prodotto deve essere un numero intero.",
-                    "Errore di inserimento",
-                    JOptionPane.ERROR_MESSAGE
-            );
-
-            return;
-        }
-
-        if (idProdotto < 0) {
-
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Il codice prodotto non può essere negativo.",
-                    "Errore di inserimento",
-                    JOptionPane.ERROR_MESSAGE
-            );
-
-            return;
-        }
 
         if (nome.isEmpty()) {
             JOptionPane.showMessageDialog(
@@ -171,7 +131,7 @@ public class CreaProdottoBoundary {
 
 
 
-    /*TEST INTERFACCIA (e creaProdottoValidazione)
+    /*TEST INTERFACCIA (e creaProdottoValidazione) *
     public static void main(String[] args) {
 
         CreaProdottoBoundary creaProdottoBoundary =

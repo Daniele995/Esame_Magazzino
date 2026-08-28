@@ -3,7 +3,9 @@ package Entity;
 import Database.GestorePersistenza;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RegistroProdotti {
 
@@ -48,4 +50,40 @@ public class RegistroProdotti {
         }
         return null;
     }
+
+    public boolean validaDati(String nome) {
+
+        Map<String, Object> campi = new HashMap<>();
+        campi.put("nome", nome);
+
+        List<Prodotto> prodotti =
+                gestorePersistenza.cercaPerCampi(
+                        Prodotto.class,
+                        campi
+                );
+
+        return prodotti.isEmpty();
+    }
+
+    public boolean creaProdotto(
+            String nome,
+            String descrizione,
+            String categoria,
+            int sogliaMinima,
+            String posizione) {
+
+        int qtaDisponibile = 0;
+
+        Prodotto prodotto = new Prodotto(
+                nome,
+                descrizione,
+                categoria,
+                sogliaMinima,
+                posizione,
+                qtaDisponibile
+        );
+
+        return gestorePersistenza.salva(prodotto);
+    }
+
 }

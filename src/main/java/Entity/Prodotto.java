@@ -1,9 +1,6 @@
 package Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +8,8 @@ import java.util.List;
 @Entity
 public class Prodotto {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id; //inizializzato a 0 di default
     private String nome;
     private String descrizione;
     private String categoria;
@@ -25,8 +23,8 @@ public class Prodotto {
 
     public Prodotto() {}
 
-    public Prodotto(int id,String nome, String descrizione, String categoria, int sogliaMinima, String posizione, int qtaDisponibile) {
-        this.id=id;
+    public Prodotto(String nome, String descrizione, String categoria, int sogliaMinima, String posizione, int qtaDisponibile) {
+
         this.nome = nome;
         this.descrizione = descrizione;
         this.categoria = categoria;
