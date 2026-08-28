@@ -1,5 +1,7 @@
 package Boundary;
 
+import Controller.ControllerResponsabile;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -162,6 +164,45 @@ public class CreaProdottoBoundary {
                 return;
             }
 
+        }
+
+
+        ControllerResponsabile controllerResponsabile = new ControllerResponsabile();
+
+        int esito = controllerResponsabile.creaProdotto(
+                nome,
+                descrizione,
+                categoria,
+                sogliaMinimaInt,
+                posizione
+        );
+
+        if (esito == ControllerResponsabile.PRODOTTO_INSERITO_SUCCESSO) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Prodotto creato correttamente.",
+                    "Creazione prodotto",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+
+        } else if (esito == ControllerResponsabile.PRODOTTO_GIA_PRESENTE) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Esiste già un prodotto con questo nome.",
+                    "Errore di inserimento",
+                    JOptionPane.ERROR_MESSAGE
+            );
+
+        } else {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Errore durante la creazione del prodotto.",
+                    "Errore",
+                    JOptionPane.ERROR_MESSAGE
+            );
         }
 
     }
