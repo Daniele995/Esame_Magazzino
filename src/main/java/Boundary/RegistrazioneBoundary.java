@@ -47,6 +47,9 @@ public class RegistrazioneBoundary {
                 } else if (esito == ControllerAutenticazione.EMAIL_GIA_ESISTENTE) {
                     JOptionPane.showMessageDialog(null, "Errore: questa email è già registrata.");
                 }
+                else {
+                    JOptionPane.showMessageDialog(null, "Errore imprevisto durante la registrazione.");
+                }
 
             }
         });

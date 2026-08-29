@@ -13,7 +13,7 @@ public class GestoreUtenti {
         gestorePersistenza = new GestorePersistenza();
     }
 
-    public int registrazione(String nome, String cognome, String email, Ruolo ruolo) {
+    /*public int registrazione(String nome, String cognome, String email, Ruolo ruolo) {
 
         if(esisteUtente(email)){
             return 0;
@@ -26,14 +26,14 @@ public class GestoreUtenti {
         }else {
             return -1;
         }
-    }
+    }*/
 
-    private boolean esisteUtente(String email){
+    public boolean esisteUtenteReg(String email){
         Utente utente = gestorePersistenza.cercaPrimoPerCampi(Utente.class, Map.of("email", email));
         return utente != null;
     }
 
-    private boolean creaUtente(String nome,String cognome,String email,Ruolo ruolo) {
+    public boolean creaUtente(String nome,String cognome,String email,Ruolo ruolo) {
         if (ruolo == Ruolo.OPERATORE) {
             Utente nuovoUtente = new Operatore(nome, cognome, email);
             return gestorePersistenza.salva(nuovoUtente);
@@ -44,15 +44,17 @@ public class GestoreUtenti {
 
     }
 
-    public int accesso(String email, Ruolo ruolo) {
+    public boolean esisteUtenteAccesso(String email, Ruolo ruolo) {
         Utente utente = gestorePersistenza.cercaPrimoPerCampi(Utente.class, Map.of("email", email, "ruolo", ruolo));
-        if (utente == null) {
+        /*if (utente == null) {
             return -1;
         }else {
             return 2;
-        }
+        }*/
+        return utente != null;
 
     }
+
     public int trovaId(String email){
 
         Map<String, Object> parametri = Map.of("email", email);

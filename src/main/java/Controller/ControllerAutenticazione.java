@@ -14,14 +14,33 @@ public class ControllerAutenticazione {
 
         Ruolo ruolo = Ruolo.valueOf(ruoloPassato.toUpperCase()); //Converto per enum
         GestoreUtenti gestore = new GestoreUtenti();
-        return gestore.registrazione(nome, cognome, email, ruolo);
+
+        boolean esisteUtente = gestore.esisteUtenteReg(email);
+        if(esisteUtente){
+            return EMAIL_GIA_ESISTENTE;
+        }
+
+        boolean creaUtente= gestore.creaUtente(nome, cognome, email, ruolo);
+        if(creaUtente){
+            return REGISTRAZIONE_SUCCESSO;
+        }else {
+            return ERRORE_DATI;
+        }
+        //return gestore.registrazione(nome, cognome, email, ruolo);
     }
 
 
     public static int accessoUtente(String email, String ruoloPassato) {
         Ruolo ruolo = Ruolo.valueOf(ruoloPassato.toUpperCase()); //Converto per enum
         GestoreUtenti gestore = new GestoreUtenti();
-        return  gestore.accesso(email,ruolo);
+
+        boolean esisteUtente = gestore.esisteUtenteAccesso(email,ruolo);
+        if (esisteUtente){
+            return ACCESSO_SUCCESSO;
+        }else {
+            return ERRORE_DATI;
+        }
+        //return  gestore.accesso(email,ruolo);
     }
 
     public static int getId(String email){
