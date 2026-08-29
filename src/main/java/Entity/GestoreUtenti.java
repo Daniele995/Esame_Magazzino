@@ -61,7 +61,7 @@ public class GestoreUtenti {
 
         Utente utente = gestorePersistenza.cercaPrimoPerCampi(Utente.class, parametri);
 
-        if (esisteUtente(email)){
+        if (utente!=null){
             return utente.getId();
         }
         return -1;
