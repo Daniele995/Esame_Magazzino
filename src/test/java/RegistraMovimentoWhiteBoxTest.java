@@ -44,7 +44,34 @@ public class RegistraMovimentoWhiteBoxTest {
     }
 
     @Test
-    void testScaricoSottoScorta() {
+    void testCaricoRipristinoScorta_TC1() {
+        registroMovimenti.registraMovimento(prodottoSottoScorta, "carico", 10, new Date(), operatoreTest.getId());
+
+        assertEquals(15, prodottoSottoScorta.getQtaDisponibile());
+        assertFalse(prodottoSottoScorta.isSottoScorta());
+    }
+
+    @Test
+    void testCaricoRestaSottoScorta_TC2(){
+        registroMovimenti.registraMovimento(prodottoSottoScorta, "carico", 1, new Date(), operatoreTest.getId());
+
+        assertEquals(6,prodottoSottoScorta.getQtaDisponibile());
+        assertTrue(prodottoSottoScorta.isSottoScorta());
+    }
+
+    @Test
+    void testScaricoStandard_TC3() {
+        registroMovimenti.registraMovimento(prodottoNormale, "scarico", 5, new Date(), operatoreTest.getId());
+
+        assertEquals(15, prodottoNormale.getQtaDisponibile());
+        assertFalse(prodottoNormale.isSottoScorta());
+
+        List<Movimento> movimenti = gestorePersistenza.cercaTutti(Movimento.class);
+        assertEquals(1, movimenti.size());
+    }
+
+    @Test
+    void testScaricoSottoScorta_TC4() {
         registroMovimenti.registraMovimento(prodottoNormale, "scarico", 15, new Date(), operatoreTest.getId());
 
         assertEquals(5, prodottoNormale.getQtaDisponibile());
@@ -55,34 +82,7 @@ public class RegistraMovimentoWhiteBoxTest {
     }
 
     @Test
-    void testCaricoRipristinoScorta() {
-        registroMovimenti.registraMovimento(prodottoSottoScorta, "carico", 10, new Date(), operatoreTest.getId());
-
-        assertEquals(15, prodottoSottoScorta.getQtaDisponibile());
-        assertFalse(prodottoSottoScorta.isSottoScorta());
-    }
-
-    @Test
-    void testCaricoStandard() {
-        registroMovimenti.registraMovimento(prodottoNormale, "carico", 5, new Date(), operatoreTest.getId());
-
-        assertEquals(25, prodottoNormale.getQtaDisponibile());
-        assertFalse(prodottoNormale.isSottoScorta());
-
-        List<Movimento> movimenti = gestorePersistenza.cercaTutti(Movimento.class);
-        assertEquals(1, movimenti.size());
-    }
-
-    @Test
-    void testCaricoRestaSottoScorta(){
-        registroMovimenti.registraMovimento(prodottoSottoScorta, "carico", 1, new Date(), operatoreTest.getId());
-
-        assertEquals(6,prodottoSottoScorta.getQtaDisponibile());
-        assertTrue(prodottoSottoScorta.isSottoScorta());
-    }
-
-    @Test
-    void testScaricoSottoScortaSenzaResponsabili() {
+    void testScaricoSottoScortaSenzaResponsabili_TC5() {
 
         gestorePersistenza.elimina(responsabileTest.getClass(),(long)responsabileTest.getId());
 
