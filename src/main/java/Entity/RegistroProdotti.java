@@ -51,6 +51,16 @@ public class RegistroProdotti {
         return null;
     }
 
+    public Prodotto ricercaProdotto(String nomeProdotto) {
+        List<Prodotto> prodotti = gestorePersistenza.cercaTutti(Prodotto.class);
+        for (Prodotto p : prodotti) {
+            if (p.getNome().equals(nomeProdotto)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
     public boolean validaDati(String nome) {
 
         Map<String, Object> campi = new HashMap<>();
@@ -84,6 +94,37 @@ public class RegistroProdotti {
         );
 
         return gestorePersistenza.salva(prodotto);
+    }
+
+    public boolean validaNomeModifica(int idProdotto, String nome) {
+
+        List<Prodotto> prodotti = gestorePersistenza.cercaTutti(Prodotto.class);
+
+        for (Prodotto p : prodotti) {
+            if (p.getNome().equals(nome) && p.getId() != idProdotto) {return false;}
+        }
+        return true;
+    }
+
+    public boolean modificaProdotto(
+            int idProdotto,
+            String nome,
+            String descrizione,
+            String categoria,
+            int sogliaMinima,
+            String posizione) {
+
+        Prodotto prodotto = ricercaProdotto(idProdotto);
+        if (prodotto == null) {return false;}
+        prodotto.modificaAttributi(nome, descrizione, categoria, sogliaMinima, posizione);
+
+        try {
+            gestorePersistenza.aggiorna(prodotto);
+            return true;
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }

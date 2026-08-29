@@ -82,4 +82,20 @@ public class Prodotto {
     public boolean isSottoScorta() {
         return isSottoScorta;
     }
+
+    public void modificaAttributi(
+            String nome,
+            String descrizione,
+            String categoria,
+            int sogliaMinima,
+            String posizione) {
+
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.categoria = categoria;
+        this.sogliaMinima = sogliaMinima;
+        this.posizione = posizione;
+
+        this.isSottoScorta = this.qtaDisponibile < this.sogliaMinima;
+    }
 }
