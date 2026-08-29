@@ -104,7 +104,7 @@ public class RegistraMovimentoBlackBoxTest {
     void testScaricoSottoScorta_TC2() {
         int idProd = prodottoSottoScorta.getId();
         int idOp = operatoreTest.getId();
-        int esito = ControllerOperatore.registraMovimento("scarico", 10, idProd, idOp);
+        int esito = ControllerOperatore.registraMovimento("scarico", 4, idProd, idOp);
         assertEquals(ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA, esito);
     }
 
