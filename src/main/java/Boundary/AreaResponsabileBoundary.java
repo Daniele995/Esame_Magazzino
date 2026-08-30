@@ -62,7 +62,7 @@ public class AreaResponsabileBoundary {
 
             AreaResponsabileBoundary areaResponsabile = new AreaResponsabileBoundary();
 
-            frame.setContentPane(areaResponsabile.apriFormResponsabilePannel());
+            frame.setContentPane(areaResponsabile.apriFormResponsabile());
 
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -70,7 +70,7 @@ public class AreaResponsabileBoundary {
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         });
-    }ù
+    }
+*/
 
- */
 }
