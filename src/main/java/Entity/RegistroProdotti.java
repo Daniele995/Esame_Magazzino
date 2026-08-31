@@ -44,9 +44,7 @@ public class RegistroProdotti {
     public Prodotto ricercaProdotto(int idProdotto){
         List<Prodotto> prodotti = gestorePersistenza.cercaTutti(Prodotto.class);
         for (Prodotto p: prodotti){
-            if(p.getId() == idProdotto){
-                return p;
-            }
+            if(p.getId() == idProdotto){return p;}
         }
         return null;
     }
@@ -54,25 +52,17 @@ public class RegistroProdotti {
     public Prodotto ricercaProdotto(String nomeProdotto) {
         List<Prodotto> prodotti = gestorePersistenza.cercaTutti(Prodotto.class);
         for (Prodotto p : prodotti) {
-            if (p.getNome().equals(nomeProdotto)) {
-                return p;
-            }
+            if (p.getNome().equalsIgnoreCase(nomeProdotto)) {return p;}
         }
         return null;
     }
 
     public boolean validaDati(String nome) {
-
-        Map<String, Object> campi = new HashMap<>();
-        campi.put("nome", nome);
-
-        List<Prodotto> prodotti =
-                gestorePersistenza.cercaPerCampi(
-                        Prodotto.class,
-                        campi
-                );
-
-        return prodotti.isEmpty();
+        List<Prodotto> prodotti = gestorePersistenza.cercaTutti(Prodotto.class);
+        for (Prodotto p : prodotti) {
+            if (p.getNome().equalsIgnoreCase(nome)) {return false;}
+        }
+        return true;
     }
 
     public boolean creaProdotto(
@@ -97,11 +87,9 @@ public class RegistroProdotti {
     }
 
     public boolean validaNomeModifica(int idProdotto, String nome) {
-
         List<Prodotto> prodotti = gestorePersistenza.cercaTutti(Prodotto.class);
-
         for (Prodotto p : prodotti) {
-            if (p.getNome().equals(nome) && p.getId() != idProdotto) {return false;}
+            if (p.getNome().equalsIgnoreCase(nome) && p.getId() != idProdotto) {return false;}
         }
         return true;
     }
