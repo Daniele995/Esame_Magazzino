@@ -72,15 +72,13 @@ public class RegistroProdotti {
             int sogliaMinima,
             String posizione) {
 
-        int qtaDisponibile = 0;
-
         Prodotto prodotto = new Prodotto(
                 nome,
                 descrizione,
                 categoria,
                 sogliaMinima,
                 posizione,
-                qtaDisponibile
+                0
         );
 
         return gestorePersistenza.salva(prodotto);
