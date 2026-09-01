@@ -35,7 +35,7 @@ public class RegistraMovimentoWhiteBoxTest {
     @AfterEach
     void tearDown() {
         for (Notifica n : gestorePersistenza.cercaTutti(Notifica.class)) { gestorePersistenza.elimina(n.getClass(),(long)n.getId()); }
-        for (Movimento m : gestorePersistenza.cercaTutti(Movimento.class)) { gestorePersistenza.elimina(m.getClass(),(long)m.getMovimento_id()); }
+        for (Movimento m : gestorePersistenza.cercaTutti(Movimento.class)) { gestorePersistenza.elimina(m.getClass(),(long)m.getIdMovimento()); }
 
         gestorePersistenza.elimina(prodottoNormale.getClass(),(long)prodottoNormale.getId());
         gestorePersistenza.elimina(prodottoSottoScorta.getClass(),(long)prodottoSottoScorta.getId());

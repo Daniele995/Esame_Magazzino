@@ -67,7 +67,7 @@ public class GestoreUtenti {
         return -1;
     }
 
-    public static List<Responsabile> listaResponsabili(){
+    public static List<Responsabile> getListaResponsabili(){
         GestorePersistenza gestorePersistenza = new GestorePersistenza();
         return gestorePersistenza.cercaTutti(Responsabile.class);
     }

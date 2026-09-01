@@ -19,12 +19,11 @@ public class ConsultoStoricoOperazioniBoundary {
     }
 
 
-    public JFrame apriConsultoStoricoOperazioni(){
+    public void apriConsultoStoricoOperazioni(){
         JFrame frameOperatore = new JFrame("Consulto Storico Operazioni");
         frameOperatore.setContentPane(this.consultoStoricoOperazioniPanel);
         frameOperatore.pack();
         frameOperatore.setLocationRelativeTo(null);
         frameOperatore.setVisible(true);
-        return frameOperatore;
     }
 }

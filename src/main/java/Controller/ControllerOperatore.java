@@ -61,7 +61,7 @@ public class ControllerOperatore {
 
         for (Movimento m: movimenti){
             String[] riga = new String[]{
-                    String.valueOf(m.getMovimento_id()), m.getTipo(), String.valueOf(m.getQuantita()), m.getData().toString(), m.getOperatore().getNome()
+                    String.valueOf(m.getIdMovimento()), m.getTipo(), String.valueOf(m.getQuantita()), m.getData().toString(), m.getOperatore().getNome()
             };
             righe.add(riga);
         }

@@ -73,20 +73,19 @@ public class ConsultoElencoProdottiBoundary {
         }
     }
 
-    public JFrame apriConsultoElenco() {
+    public void apriConsultoElenco() {
 
         if (!datiDisponibili) {
             JOptionPane.showMessageDialog(null,
                     "Al momento non ci sono prodotti registrati nel magazzino.",
                     "Attenzione",
                     JOptionPane.INFORMATION_MESSAGE);
-            return null;
+            return;
         }
         JFrame frameElenco = new JFrame("Elenco Prodotti");
         frameElenco.setContentPane(this.consultoElencoProdotti);
         frameElenco.pack();
         frameElenco.setLocationRelativeTo(null);
         frameElenco.setVisible(true);
-        return frameElenco;
     }
 }
