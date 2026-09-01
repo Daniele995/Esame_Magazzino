@@ -93,6 +93,7 @@ public class RegistrazioneBoundary {
     public JFrame apriFormRegistrazione() {
         JFrame frameRegistrazione = new JFrame("Registrazione Utente");
         frameRegistrazione.setContentPane(this.registrazionePanel);
+        frameRegistrazione.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameRegistrazione.pack();
         frameRegistrazione.setLocationRelativeTo(null);
         frameRegistrazione.setVisible(true);

@@ -13,21 +13,6 @@ public class GestoreUtenti {
         gestorePersistenza = new GestorePersistenza();
     }
 
-    /*public int registrazione(String nome, String cognome, String email, Ruolo ruolo) {
-
-        if(esisteUtente(email)){
-            return 0;
-        }
-
-        boolean esito=creaUtente(nome,cognome,email,ruolo);
-
-        if (esito) {
-            return 1;
-        }else {
-            return -1;
-        }
-    }*/
-
     public boolean esisteUtenteReg(String email){
         Utente utente = gestorePersistenza.cercaPrimoPerCampi(Utente.class, Map.of("email", email));
         return utente != null;
@@ -46,11 +31,6 @@ public class GestoreUtenti {
 
     public boolean esisteUtenteAccesso(String email, Ruolo ruolo) {
         Utente utente = gestorePersistenza.cercaPrimoPerCampi(Utente.class, Map.of("email", email, "ruolo", ruolo));
-        /*if (utente == null) {
-            return -1;
-        }else {
-            return 2;
-        }*/
         return utente != null;
 
     }

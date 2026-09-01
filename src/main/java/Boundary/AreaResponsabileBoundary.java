@@ -45,14 +45,14 @@ public class AreaResponsabileBoundary {
         });
     }
 
-    public JFrame apriFormResponsabile() {
+    public void apriFormResponsabile() {
         JFrame frameResponsabile = new JFrame("Area Responsabile");
         frameResponsabile.setContentPane(this.areaResponsabilePanel);
         frameResponsabile.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameResponsabile.pack();
         frameResponsabile.setLocationRelativeTo(null);
         frameResponsabile.setVisible(true);
-        return frameResponsabile;
+
     }
 
 /*

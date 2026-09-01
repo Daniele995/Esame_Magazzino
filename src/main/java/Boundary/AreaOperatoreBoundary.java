@@ -35,12 +35,11 @@ public class AreaOperatoreBoundary {
         });
     }
 
-    public JFrame apriFormOperatore(){
+    public void apriFormOperatore(){
         JFrame frameOperatore = new JFrame("Area Operatore");
         frameOperatore.setContentPane(this.areaOperatorePanel);
         frameOperatore.pack();
         frameOperatore.setLocationRelativeTo(null);
         frameOperatore.setVisible(true);
-        return frameOperatore;
     }
 }

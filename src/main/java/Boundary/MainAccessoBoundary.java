@@ -15,8 +15,7 @@ public class MainAccessoBoundary {
     private JLabel ruolo;
 
     private JFrame frameRegistrazione;
-    private JFrame frameResponsabile;
-    private JFrame frameOperatore;
+
 
 
     public MainAccessoBoundary() {
@@ -82,11 +81,11 @@ public class MainAccessoBoundary {
 
             if ("Responsabile".equals(ruoloSelezionato)) {
                 AreaResponsabileBoundary areaResp = new AreaResponsabileBoundary();
-                frameResponsabile = areaResp.apriFormResponsabile();
+                areaResp.apriFormResponsabile();
 
             } else if ("Operatore".equals(ruoloSelezionato)) {
                 AreaOperatoreBoundary areaOp = new AreaOperatoreBoundary(idUtente);
-                frameOperatore = areaOp.apriFormOperatore();
+                areaOp.apriFormOperatore();
             }
 
         }else if (esito == ControllerAutenticazione.ERRORE_DATI){
