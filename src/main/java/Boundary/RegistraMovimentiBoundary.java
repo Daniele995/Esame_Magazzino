@@ -93,7 +93,7 @@ public class RegistraMovimentiBoundary {
                     "Salvataggio eseguito",
                     JOptionPane.INFORMATION_MESSAGE
             );
-        } else if( esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA){
+        } else if (esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA){
             label_esito.setText("Movimento registrato con successo");
             JOptionPane.showMessageDialog(
                     null,
@@ -101,7 +101,7 @@ public class RegistraMovimentiBoundary {
                     "Salvataggio eseguito",
                     JOptionPane.INFORMATION_MESSAGE
             );
-        } else if(esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA_RIMOSSO){
+        } else if (esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA_RIMOSSO){
             label_esito.setText("Movimento registrato con successo");
             JOptionPane.showMessageDialog(
                     null,
@@ -155,7 +155,7 @@ public class RegistraMovimentiBoundary {
                     "Salvataggio eseguito",
                     JOptionPane.INFORMATION_MESSAGE
             );
-        } else if(esito == ControllerOperatore.ERRORE_QUANTITA_INSUFFICIENTE){
+        } else if (esito == ControllerOperatore.ERRORE_QUANTITA_INSUFFICIENTE){
             label_esito.setText("Movimento non eseguito a causa di scarsità nelle scorte");
             JOptionPane.showMessageDialog(
                     null,
@@ -163,7 +163,7 @@ public class RegistraMovimentiBoundary {
                     "Errore nel salvataggio",
                     JOptionPane.INFORMATION_MESSAGE
             );
-        } else if(esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA){
+        } else if (esito == ControllerOperatore.MOVIMENTO_REGISTRATO_SOTTO_SCORTA){
             label_esito.setText("Movimento eseguito e prodotto segnato sotto scorta");
             JOptionPane.showMessageDialog(
                     null,
