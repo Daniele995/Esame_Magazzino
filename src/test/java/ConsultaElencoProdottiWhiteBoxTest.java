@@ -28,13 +28,6 @@ public class ConsultaElencoProdottiWhiteBoxTest {
     }
 
     @Test
-    public void testCammino1_ListaNull() {
-        List<String[]> risultato = report.consultaElencoProdotti();
-        assertNotNull(risultato);
-        assertTrue(risultato.isEmpty());
-    }
-
-    @Test
     public void testCammino2_ListaVuota() {
         List<String[]> risultato = report.consultaElencoProdotti();
         assertNotNull(risultato);

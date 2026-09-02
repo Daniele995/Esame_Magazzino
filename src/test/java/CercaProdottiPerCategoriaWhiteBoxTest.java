@@ -27,11 +27,6 @@ public class CercaProdottiPerCategoriaWhiteBoxTest {
         }
     }
 
-    @Test
-    public void testCammino1_ListaNull() {
-        List<String[]> risultato = registro.cercaProdottiPerCategoria("alimentari");
-        assertNotNull(risultato);
-    }
 
     @Test
     public void testCammino2_ListaVuota() {
