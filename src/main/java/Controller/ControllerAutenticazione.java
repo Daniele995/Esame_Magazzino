@@ -26,7 +26,7 @@ public class ControllerAutenticazione {
         }else {
             return ERRORE_DATI;
         }
-        //return gestore.registrazione(nome, cognome, email, ruolo);
+
     }
 
 
@@ -40,7 +40,7 @@ public class ControllerAutenticazione {
         }else {
             return ERRORE_DATI;
         }
-        //return  gestore.accesso(email,ruolo);
+
     }
 
     public static int getId(String email){

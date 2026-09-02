@@ -20,7 +20,7 @@ public class RegistroMovimenti {
             if(tipo.equals("scarico") && prodotto.getQtaDisponibile() < prodotto.getSogliaMinima()){
                 prodotto.setSottoscorta(true);
 
-                List<Responsabile> listaResponsabili = GestoreUtenti.listaResponsabili();
+                List<Responsabile> listaResponsabili = GestoreUtenti.getListaResponsabili();
 
                 for(Responsabile resp: listaResponsabili){
                     Notifica notifica = new Notifica("Il prodotto con ID "+ prodotto.getId()+ " è sotto scorta",resp);

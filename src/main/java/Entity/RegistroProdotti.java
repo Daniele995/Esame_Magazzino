@@ -21,9 +21,9 @@ public class RegistroProdotti {
         // Recupero tutti i prodotti
         List<Prodotto> listaProdotti = gestorePersistenza.cercaTutti(Prodotto.class);
 
-        if (listaProdotti != null) {
-            for (Prodotto p : listaProdotti) {
-                if (p.getCategoria() != null && p.getCategoria().equals(categoriaCercata)) {
+        if (listaProdotti != null) { // Nodo 2
+            for (Prodotto p : listaProdotti) { // Nodo 3
+                if (p.getCategoria() != null && p.getCategoria().equals(categoriaCercata)) { //Nodo 4 e 5
                     String[] riga = {
                             String.valueOf(p.getId()),
                             p.getNome(),

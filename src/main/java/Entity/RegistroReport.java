@@ -17,10 +17,10 @@ public class RegistroReport {
         List<String[]> elencoProdotti = new ArrayList<>();
 
         // Recupero la lista dei prodotti
-        List<Prodotto> listaProdotti = gestorePersistenza.cercaTutti(Prodotto.class);
+        List<Prodotto> listaProdotti = gestorePersistenza.cercaTutti(Prodotto.class); // Nodo 1 CFG
 
-        if (listaProdotti != null) {
-            for (Prodotto p : listaProdotti) {
+        if (listaProdotti != null) {   //Nodo 2
+            for (Prodotto p : listaProdotti) { //Nodo 3
                 // Array di stringhe con i campi da mostrare nella tabella
                 String[] riga = {String.valueOf(p.getId()),
                         p.getNome(),
@@ -30,10 +30,10 @@ public class RegistroReport {
                         p.getPosizione(),
                         String.valueOf(p.getQtaDisponibile())
                 };
-                elencoProdotti.add(riga);
+                elencoProdotti.add(riga); //Nodo 4
             }
         }
 
-        return elencoProdotti;
+        return elencoProdotti; //Nodo 5
     }
 }

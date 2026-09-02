@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_utente", discriminatorType = DiscriminatorType.STRING)
-public class Utente {
+public abstract class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

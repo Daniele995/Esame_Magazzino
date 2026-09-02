@@ -32,7 +32,7 @@ public class RegistraMovimentoBlackBoxTest {
     void tearDown() {
         List<Movimento> movimenti = gp.cercaTutti(Movimento.class);
         for (Movimento m : movimenti) {
-            gp.elimina(m.getClass(),(long)m.getMovimento_id());
+            gp.elimina(m.getClass(),(long)m.getIdMovimento());
         }
         gp.elimina(prodottoStandard.getClass(),(long)prodottoStandard.getId());
         gp.elimina(prodottoSottoScorta.getClass(),(long)prodottoSottoScorta.getId());

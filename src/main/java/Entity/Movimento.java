@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 public class Movimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Movimento_id;
+    private int idMovimento;
     private String tipo;
     private int quantita;
     private Date data;
@@ -20,7 +20,7 @@ public class Movimento {
     private Operatore operatore;
 
     @ManyToOne
-    @JoinColumn(name = "prodotto_id")
+    @JoinColumn(name = "Prodotto_id")
     private Prodotto prodotto;
 
 
@@ -43,8 +43,8 @@ public class Movimento {
         this.operatore = operatore;
     }
 
-    public int getMovimento_id() {
-        return Movimento_id;
+    public int getIdMovimento() {
+        return idMovimento;
     }
 
     public String getTipo() {

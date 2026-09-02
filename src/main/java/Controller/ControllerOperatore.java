@@ -51,23 +51,6 @@ public class ControllerOperatore {
         return MOVIMENTO_REGISTRATO_SUCCESSO;
     }
 
-    public static List<String[]> getStoricoOperazioni(int idProdotto){
-        RegistroMovimenti registroMovimenti = new RegistroMovimenti();
-
-        GestorePersistenza gestorePersistenza = new GestorePersistenza();
-
-        List<Movimento> movimenti = gestorePersistenza.cercaTutti(Movimento.class);
-        List<String[]> righe = new ArrayList<>();
-
-        for (Movimento m: movimenti){
-            String[] riga = new String[]{
-                    String.valueOf(m.getMovimento_id()), m.getTipo(), String.valueOf(m.getQuantita()), m.getData().toString(), m.getOperatore().getNome()
-            };
-            righe.add(riga);
-        }
-        return righe;
-    }
-
     public static List<String[]> getElencoProdotti() {
         RegistroReport registroReport = new RegistroReport();
         return registroReport.consultaElencoProdotti();
