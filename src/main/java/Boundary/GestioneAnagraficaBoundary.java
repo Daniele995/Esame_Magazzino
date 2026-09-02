@@ -40,7 +40,7 @@ public class GestioneAnagraficaBoundary {
     }
 
 
-    // TEST INTERFACCIA
+    //TEST INTERFACCIA
     public static void main(String[] args) {
 
         GestioneAnagraficaBoundary gestioneAnagraficaBoundary =
@@ -48,6 +48,5 @@ public class GestioneAnagraficaBoundary {
 
         gestioneAnagraficaBoundary.apriGestioneAnagrafica();
     }
-
 
 }

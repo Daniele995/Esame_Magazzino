@@ -23,7 +23,6 @@ public class RegistroProdotti {
 
         if (listaProdotti != null) {
             for (Prodotto p : listaProdotti) {
-
                 if (p.getCategoria() != null && p.getCategoria().equals(categoriaCercata)) {
                     String[] riga = {
                             String.valueOf(p.getId()),

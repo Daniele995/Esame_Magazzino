@@ -24,7 +24,6 @@ public class Prodotto {
     public Prodotto() {}
 
     public Prodotto(String nome, String descrizione, String categoria, int sogliaMinima, String posizione, int qtaDisponibile) {
-
         this.nome = nome;
         this.descrizione = descrizione;
         this.categoria = categoria;
@@ -95,7 +94,6 @@ public class Prodotto {
         this.categoria = categoria;
         this.sogliaMinima = sogliaMinima;
         this.posizione = posizione;
-
         this.isSottoScorta = this.qtaDisponibile < this.sogliaMinima;
     }
 }

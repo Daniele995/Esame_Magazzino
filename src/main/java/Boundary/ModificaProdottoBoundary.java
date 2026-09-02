@@ -92,9 +92,7 @@ public class ModificaProdottoBoundary {
         String[] prodottoTrovato = null;
 
         if (ricercaPerId.isSelected()) {
-
             int idProdotto;
-
             try {
                 idProdotto = Integer.parseInt(valoreRicerca);
             } catch (NumberFormatException e) {
@@ -142,9 +140,7 @@ public class ModificaProdottoBoundary {
             );
             return;
         }
-
         caricaProdotto(prodottoTrovato);
-
     }
 
     private void caricaProdotto(String[] prodotto) {
@@ -173,7 +169,6 @@ public class ModificaProdottoBoundary {
     }
 
     private void modificaProdottoValidazione() {
-
         if (idProdottoSelezionato == null) {
             JOptionPane.showMessageDialog(
                     null,
@@ -189,7 +184,6 @@ public class ModificaProdottoBoundary {
         String categoria = inserisciCategoria.getText();
         String sogliaMinimaString = inserisciSoglia.getText();
         String posizione = inserisciPosizione.getText();
-
 
         if (nome.isEmpty()) {
             JOptionPane.showMessageDialog(
@@ -211,7 +205,6 @@ public class ModificaProdottoBoundary {
             return;
         }
 
-
         if (descrizione.isEmpty()) {
             JOptionPane.showMessageDialog(
                     null,
@@ -231,7 +224,6 @@ public class ModificaProdottoBoundary {
             );
             return;
         }
-
 
         if (categoria.isEmpty()) {
             JOptionPane.showMessageDialog(
@@ -253,7 +245,6 @@ public class ModificaProdottoBoundary {
             return;
         }
 
-
         if (posizione.isEmpty()) {
             JOptionPane.showMessageDialog(
                     null,
@@ -274,45 +265,35 @@ public class ModificaProdottoBoundary {
             return;
         }
 
-
         int sogliaMinimaInt;
 
         if (sogliaMinimaString.isEmpty()) {
-
             sogliaMinimaInt = 0;
-
         } else {
-
             try {
-
                 sogliaMinimaInt =
                         Integer.parseInt(sogliaMinimaString);
 
             } catch (NumberFormatException e) {
-
                 JOptionPane.showMessageDialog(
                         null,
                         "La soglia minima deve essere un numero intero.",
                         "Errore di inserimento",
                         JOptionPane.ERROR_MESSAGE
                 );
-
                 return;
             }
 
             if (sogliaMinimaInt < 0) {
-
                 JOptionPane.showMessageDialog(
                         null,
                         "La soglia minima non può essere negativa.",
                         "Errore di inserimento",
                         JOptionPane.ERROR_MESSAGE
                 );
-
                 return;
             }
         }
-
 
         int esito =
                 ControllerResponsabile.modificaProdotto(
@@ -324,29 +305,21 @@ public class ModificaProdottoBoundary {
                         posizione
                 );
 
-
-        if (esito ==
-                ControllerResponsabile.PRODOTTO_MODIFICATO_SUCCESSO) {
-
+        if (esito == ControllerResponsabile.PRODOTTO_MODIFICATO_SUCCESSO) {
             JOptionPane.showMessageDialog(
                     null,
                     "Prodotto modificato con successo.",
                     "Modifica prodotto",
                     JOptionPane.INFORMATION_MESSAGE
             );
-
-        } else if (esito ==
-                ControllerResponsabile.PRODOTTO_GIA_PRESENTE) {
-
+        } else if (esito == ControllerResponsabile.PRODOTTO_GIA_PRESENTE) {
             JOptionPane.showMessageDialog(
                     null,
                     "Esiste già un prodotto con questo nome.",
                     "Errore di modifica",
                     JOptionPane.ERROR_MESSAGE
             );
-
         } else {
-
             JOptionPane.showMessageDialog(
                     null,
                     "Errore durante la modifica del prodotto.",
@@ -357,14 +330,13 @@ public class ModificaProdottoBoundary {
     }
 
 
-    //TEST INTERFACCIA
+    /*TEST INTERFACCIA
     public static void main(String[] args) {
 
         ModificaProdottoBoundary modificaProdottoBoundary =
                 new ModificaProdottoBoundary();
 
         modificaProdottoBoundary.apriModificaProdotto();
-    }
-
+    }*/
 
 }

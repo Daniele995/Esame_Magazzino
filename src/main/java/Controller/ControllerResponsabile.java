@@ -8,7 +8,6 @@ public class ControllerResponsabile {
     public static final int PRODOTTO_INSERITO_SUCCESSO=1;
     public static final int PRODOTTO_NON_MODIFICATO = 2;
     public static final int PRODOTTO_MODIFICATO_SUCCESSO = 3;
-    public static final int ERRORE_DATI_PRODOTTO=-1;
     public static final int PRODOTTO_GIA_PRESENTE=-2;
 
     public static int creaProdotto(
@@ -40,12 +39,10 @@ public class ControllerResponsabile {
         };
     }
 
-
-
     public static String[] ricercaProdotto(int idProdotto) {
 
-        RegistroProdotti registroProdotti = new RegistroProdotti();
-        Prodotto prodotto = registroProdotti.ricercaProdotto(idProdotto);
+        RegistroProdotti registroRicercaId = new RegistroProdotti();
+        Prodotto prodotto = registroRicercaId.ricercaProdotto(idProdotto);
         if (prodotto == null) {return null;}
 
         return estraiDatiProdotto(prodotto);
@@ -53,8 +50,8 @@ public class ControllerResponsabile {
 
     public static String[] ricercaProdotto(String nomeProdotto) {
 
-        RegistroProdotti registroProdotti = new RegistroProdotti();
-        Prodotto prodotto = registroProdotti.ricercaProdotto(nomeProdotto);
+        RegistroProdotti registroRicercaNome = new RegistroProdotti();
+        Prodotto prodotto = registroRicercaNome.ricercaProdotto(nomeProdotto);
         if (prodotto == null) {return null;}
 
         return estraiDatiProdotto(prodotto);
@@ -69,7 +66,6 @@ public class ControllerResponsabile {
             String posizione) {
 
         RegistroProdotti registroProdotti = new RegistroProdotti();
-
         boolean nomeValido = registroProdotti.validaNomeModifica(idProdotto, nome);
 
         if (!nomeValido) {return PRODOTTO_GIA_PRESENTE;}

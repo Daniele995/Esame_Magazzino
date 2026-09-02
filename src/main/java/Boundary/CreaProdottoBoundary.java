@@ -26,7 +26,6 @@ public class CreaProdottoBoundary {
 
 
     public CreaProdottoBoundary() {
-
         creaProdotto.addActionListener(new ActionListener() {
 
             @Override
@@ -65,8 +64,6 @@ public class CreaProdottoBoundary {
             return;
         }
 
-
-
         if (descrizione.isEmpty()) {
             JOptionPane.showMessageDialog(
                     null,
@@ -86,8 +83,6 @@ public class CreaProdottoBoundary {
             );
             return;
         }
-
-
 
         if (categoria.isEmpty()) {
             JOptionPane.showMessageDialog(
@@ -109,8 +104,6 @@ public class CreaProdottoBoundary {
             return;
         }
 
-
-
         if (posizione.isEmpty()) {
             JOptionPane.showMessageDialog(
                     null,
@@ -131,13 +124,11 @@ public class CreaProdottoBoundary {
             return;
         }
 
-        //La soglia minima deve essere un intero non negativo
-        int sogliaMinimaInt;
+        int sogliaMinimaInt; //Deve essere un intero non negativo
 
         if (sogliaMinimaString.isEmpty()) {
             sogliaMinimaInt = 0;
         } else {
-
             try {
                 sogliaMinimaInt = Integer.parseInt(sogliaMinimaString);
             } catch (NumberFormatException e) {
@@ -148,55 +139,37 @@ public class CreaProdottoBoundary {
                         "Errore di inserimento",
                         JOptionPane.ERROR_MESSAGE
                 );
-
                 return;
             }
 
             if (sogliaMinimaInt < 0) {
-
                 JOptionPane.showMessageDialog(
                         null,
                         "La soglia minima non può essere negativa.",
                         "Errore di inserimento",
                         JOptionPane.ERROR_MESSAGE
                 );
-
                 return;
             }
-
         }
 
-
-        ControllerResponsabile controllerResponsabile = new ControllerResponsabile();
-
-        int esito = controllerResponsabile.creaProdotto(
-                nome,
-                descrizione,
-                categoria,
-                sogliaMinimaInt,
-                posizione
-        );
+        int esito = ControllerResponsabile.creaProdotto(nome, descrizione, categoria, sogliaMinimaInt, posizione);
 
         if (esito == ControllerResponsabile.PRODOTTO_INSERITO_SUCCESSO) {
-
             JOptionPane.showMessageDialog(
                     null,
                     "Prodotto creato correttamente.",
                     "Creazione prodotto",
                     JOptionPane.INFORMATION_MESSAGE
             );
-
         } else if (esito == ControllerResponsabile.PRODOTTO_GIA_PRESENTE) {
-
             JOptionPane.showMessageDialog(
                     null,
                     "Esiste già un prodotto con questo nome.",
                     "Errore di inserimento",
                     JOptionPane.ERROR_MESSAGE
             );
-
         } else {
-
             JOptionPane.showMessageDialog(
                     null,
                     "Errore durante la creazione del prodotto.",
@@ -204,7 +177,6 @@ public class CreaProdottoBoundary {
                     JOptionPane.ERROR_MESSAGE
             );
         }
-
     }
 
     public void apriCreaProdotto() {
