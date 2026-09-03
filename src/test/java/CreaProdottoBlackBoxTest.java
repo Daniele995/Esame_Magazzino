@@ -1,9 +1,26 @@
 import Entity.Prodotto;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CreaProdottoBlackBoxTest {
+
+    private Prodotto prodottoEsistente;
+
+    @BeforeEach
+    void setUp() {
+
+        prodottoEsistente = new Prodotto(
+                "Mouse",
+                "Mouse wireless",
+                "Elettronica",
+                10,
+                "A1",
+                0
+        );
+    }
+
 
     @Test
     void tuttiInputValidiConSogliaPositiva_TC1() {
@@ -94,18 +111,12 @@ public class CreaProdottoBlackBoxTest {
     @Test
     void nomeGiaPresente_TC6() {
 
-        Prodotto prodottoEsistente = new Prodotto(
-                "Mouse",
-                "Mouse wireless",
-                "Elettronica",
-                10,
-                "A1",
-                0
-        );
-
         String nuovoNome = "mOuSe";
 
-        assertTrue(prodottoEsistente.getNome().equalsIgnoreCase(nuovoNome), "Esiste già un prodotto con questo nome.");
+        assertTrue(
+                prodottoEsistente.getNome().equalsIgnoreCase(nuovoNome),
+                "Esiste già un prodotto con questo nome."
+        );
     }
 
     @Test
